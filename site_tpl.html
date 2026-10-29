@@ -100,14 +100,14 @@ button, .wa { border:0; border-radius:10px; padding:12px 16px; font:inherit; fon
 </head>
 <body>
 <header><div class="ic">
-  <div class="ust"><img class="logo" src="baykus.png" alt="EBA baykuşu">
+  <div class="ust"><img class="logo" src="goz.png" alt="EBA göz ikonu" style="border:0;border-radius:14px;background:transparent">
   <div><h1>Yeni EBA · Sosyal Medya İçerikleri · Onay</h1>
-  <p>18 içerik · 7 seri pilotu + 11 tanıtım Reels'i · 29.10.2026</p></div></div>
+  <p>2. tur · 7 revize pilot + 11 tanıtım Reels'i · 29.10.2026</p></div></div>
 </div></header>
 <main>
   <div class="genel"><table>
     <tr><td>Yayın</td><td>MEB ve YEĞİTEK resmî hesapları (Instagram, TikTok, X, Facebook, LinkedIn).</td></tr>
-    <tr><td>Kimlik</td><td>Açılış “Hey Kâşif!”, kapanış <b>#BirAdımÖnde</b>; maskot EBA'nın göz ikonu (pilotlardaki baykuş görselleri değiştirilecek). Öğrenci adı görünen yerlerde baş harfler dışında yıldızla gizlendi.</td></tr>
+    <tr><td>Kimlik</td><td>EBA Görsel Kimlik Kılavuzu'na göre: hitap yok; içerik seri başlığıyla (EBA logosu + göz ikonu) açılır, “Bir Adım Önde” ile kapanır. Metinde “EBA” geçen her yerde logo; renk #d03238, yazı tipi Barlow ve Changa. Öğrenci adı baş harfler dışında yıldızla gizlendi.</td></tr>
     <tr><td>Format</td><td>Reels 1080×1920 (9:16), kaydırmalı gönderiler 1080×1350 (4:5). Ekranlar Yeni EBA'nın gerçek arayüzünden; pilotlarda tarayıcı görünmüyor, içerik telefon/tablet mock-up'ı içinde tam ekran.</td></tr>
     <tr><td>Ses</td><td>Her videoda kendine özgü müzik ve efekt var; hepsi özgün olarak üretildi, telif sorunu yok. Ses seviyesi -14 LUFS (sosyal medya standardı). Seslendirme yok.</td></tr>
     <tr><td>İzleme</td><td>Bu sayfadaki videolar hızlı açılsın diye 720p sıkıştırılmıştır; yayın dosyaları 1080×1920.</td></tr>
@@ -115,7 +115,7 @@ button, .wa { border:0; border-radius:10px; padding:12px 16px; font:inherit; fon
   </table></div>
   <div class="ozet" id="ozet">Yanıtlar yükleniyor…</div>
   <nav class="icindekiler" id="icindekiler"></nav>
-  <div class="grup"><h3>A · Seri pilotları</h3><span>7 seri, her birinden bir bölüm · 4 Reels + 3 kaydırmalı</span></div>
+  <div class="grup"><h3>A · Seri pilotları · 2. tur</h3><span>1. turdaki revizeler uygulandı · P1 iki bölüme ayrıldı · “Sen de Anlat” ertelendi</span></div>
 {{PILOTLAR}}
   <div class="grup"><h3>B · Yeni EBA tanıtım Reels'leri</h3><span>11 video · öğrenci, veli, öğretmen ve kütüphane</span></div>
 {{REELS}}
@@ -133,7 +133,7 @@ button, .wa { border:0; border-radius:10px; padding:12px 16px; font:inherit; fon
 </div></div>
 <script>
 window.ONAY_SCRIPT_URL = '{{URL}}';
-const ANAHTAR = 'eba-sosyal-medya-onay-2910';
+const ANAHTAR = 'eba-sosyal-medya-onay-2910-tur2';
 const bolumler = [...document.querySelectorAll('.icerik')];
 const durum = (t) => { document.getElementById('durum').textContent = t; };
 document.getElementById('icindekiler').innerHTML = bolumler.map(b => '<a href="#' + b.id + '" data-no="' + b.dataset.no + '">' + b.dataset.no + '</a>').join('');
