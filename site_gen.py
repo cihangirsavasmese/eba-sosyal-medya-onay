@@ -51,7 +51,7 @@ REELS = [
       kontrol="Bu cevapta kaynakça çıkmadığı için “kaynak gösterir” denmedi."),
  dict(no="R03", ad="ÖĞRENCİNİZ EBA'DA NE YAPTI?", v="r03", sure="19 sn", hedef="Veli", muzik="piyano",
       metin="Çocuğunuzun öğrenme yolculuğuna eşlik etmek artık daha kolay. 👨‍👩‍👧\nYeni EBA veli ekranında tamamlanan içerikleri, sınavları, çalışmaları ve ders ilerlemesini tek bakışta görün.\n👉 eba.gov.tr · Veli girişi\n#YeniEBA #EBAVeli #BirAdımÖnde",
-      kontrol="Videoda test veli ve öğrenci adları (Rukiye Yıldız, Doğa Yıldız) görünüyor."),
+      kontrol="2. tur: test veli ve öğrenci adları baş harfler dışında yıldızla gizlendi (R***** Y*****, D*** Y*****)."),
  dict(no="R04", ad="KİM NEREDE ZORLANIYOR?", v="r04", sure="27 sn", hedef="Öğretmen", muzik="lo-fi",
       metin="Hangi öğrenciniz konuyu kavradı, hangisi hangi öğrenme çıktısında zorlanıyor? 📊\nYeni EBA'nın performans haritası ve çalışma sonuçlarıyla sınıfınızı veriye dayalı olarak izleyin.\n#YeniEBA #EBAÖğretmen #BirAdımÖnde"),
  dict(no="R05", ad="DERS PLANI", v="r05", sure="33 sn", hedef="Öğretmen", muzik="piyano",
