@@ -42,7 +42,7 @@ PILOTS = [
 REELS = [
  dict(no="R01", ad="ARTIK DERS ÇALIŞMAK SANA GÖRE", v="r01", sure="22 sn", hedef="Öğrenci, veli", muzik="parlak pop",
       metin="Ders çalışmak artık sana göre! 🎒\nRenkli ana sayfan, kaldığın yerden devam eden derslerin, dijital kitapların, kütüphane ve eğitsel oyunlar… Hepsi Yeni EBA'da bir arada.\n👉 eba.gov.tr\n#YeniEBA #BirAdımÖnde #EBA",
-      kontrol="Video yalnızca 1. sınıf arayüzünü gösteriyor; “her kademe” ifadesi kullanılmadı."),
+      kontrol="Revize (her kademenin ayrı arayüzü) beklemede: ortaokul, lise ve okul öncesi öğrenci test hesapları şu an yok. Hesaplar açılınca bu kademelerin ekranları çekilip videonun başına eklenecek. Şimdilik yalnızca 1. sınıf öğrenci arayüzü var."),
  dict(no="R02", ad="DERS ÇALIŞIRKEN YALNIZ DEĞİLSİN", v="r02", sure="24 sn", hedef="Öğrenci, veli", muzik="synth arp",
       metin="Bir konuda mı takıldın? EBA Yapay Zekâ'ya sor! ✨\nDerslerine odaklı, yaşına uygun ve adım adım açıklamalar Yeni EBA'da seni bekliyor.\nÖrnek: “1. sınıf matematikte toplamayı elma örneğiyle anlatır mısın?” 🍎\n#YeniEBA #EBAYapayZekâ #BirAdımÖnde",
       kontrol="Bu cevapta kaynakça çıkmadığı için “kaynak gösterir” denmedi."),
