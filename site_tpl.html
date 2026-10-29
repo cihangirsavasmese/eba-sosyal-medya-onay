@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Yeni EBA Sosyal Medya Onayı</title>
+<style>
+:root { --mavi:#E30A17; --yesil:#2E9E5B; --lale:#D9480F; --zemin:#F7F5F2; --kart:#fff; --metin:#1E1E24; --ikincil:#6B6B75; --cizgi:#E4E1DC; --onayZemin:#EAF7F0; --duzZemin:#FDEDE6; --wa:#1FA855; --uyari:#FFF6E0; --uyariCizgi:#E8B53A; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --zemin:#14151A; --kart:#1E2027; --metin:#ECECF1; --ikincil:#A3A3AE; --cizgi:#33353F; --onayZemin:#16301F; --duzZemin:#3A1E14; --uyari:#3A3014; --uyariCizgi:#B98B1C; } }
+:root[data-theme="dark"] { --zemin:#14151A; --kart:#1E2027; --metin:#ECECF1; --ikincil:#A3A3AE; --cizgi:#33353F; --onayZemin:#16301F; --duzZemin:#3A1E14; --uyari:#3A3014; --uyariCizgi:#B98B1C; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--zemin); color:var(--metin); font-family:-apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height:1.5; }
+header { background:var(--mavi); color:#fff; padding:28px 16px 24px; }
+header .ic, main { max-width:1100px; margin:0 auto; }
+header .ust { display:flex; gap:16px; align-items:center; }
+header .logo { width:64px; height:64px; border-radius:50%; border:3px solid #fff; flex:0 0 auto; background:#fff; }
+h1 { margin:0 0 6px; font-size:26px; line-height:1.2; }
+header p { margin:0; opacity:.92; }
+main { padding:16px; }
+.genel { background:var(--kart); border-radius:14px; padding:18px 20px; margin:8px 0 18px; border:1px solid var(--cizgi); }
+.genel table { width:100%; border-collapse:collapse; font-size:15px; }
+.genel td { padding:7px 0; border-bottom:1px solid var(--cizgi); vertical-align:top; }
+.genel td:first-child { width:110px; color:var(--ikincil); font-weight:600; padding-right:10px; }
+.ozet { background:var(--kart); border:1px solid var(--cizgi); border-radius:14px; padding:14px 20px; margin:0 0 18px; font-size:15px; display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+.ozet .rozet { display:inline-block; padding:4px 12px; border-radius:999px; font-weight:700; font-size:14px; }
+.rozet.o { background:var(--onayZemin); color:#1E7A4F; } .rozet.d { background:var(--duzZemin); color:#B5301B; } .rozet.b { background:var(--zemin); color:var(--ikincil); }
+.grup { margin:30px 0 12px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.grup h3 { margin:0; font-size:22px; }
+.grup span { color:var(--ikincil); font-size:15px; }
+nav.icindekiler { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 18px; }
+nav.icindekiler a { text-decoration:none; color:var(--metin); background:var(--kart); border:1px solid var(--cizgi); border-radius:999px; padding:5px 12px; font-size:13px; font-weight:600; }
+nav.icindekiler a.onay { border-color:var(--yesil); background:var(--onayZemin); } nav.icindekiler a.duzeltme { border-color:var(--lale); background:var(--duzZemin); }
+.icerik { background:var(--kart); border-radius:14px; padding:18px 20px 20px; margin:0 0 18px; border:2px solid var(--cizgi); scroll-margin-top:12px; }
+.icerik.onay { border-color:var(--yesil); }
+.icerik.duzeltme { border-color:var(--lale); }
+.bas { display:flex; gap:14px; align-items:center; margin-bottom:14px; }
+.no { flex:0 0 auto; min-width:46px; height:46px; padding:0 8px; border-radius:23px; background:var(--mavi); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; }
+h2 { margin:0; font-size:20px; line-height:1.25; }
+.kunye { margin:2px 0 0; color:var(--ikincil); font-size:14px; }
+.ikili { display:grid; grid-template-columns:minmax(0, 320px) minmax(0, 1fr); gap:22px; align-items:start; }
+.medya video { width:100%; aspect-ratio:9 / 16; border-radius:14px; background:#0B0F22; display:block; }
+.medya.kare { min-width:0; }
+.serit { display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; border-radius:12px; padding-bottom:6px; }
+.serit img { flex:0 0 100%; width:100%; aspect-ratio:4 / 5; object-fit:cover; scroll-snap-align:start; border-radius:12px; display:block; background:#0B0F22; }
+.ipucu { margin:6px 0 0; color:var(--ikincil); font-size:13px; text-align:center; }
+.medya.kare { position:relative; }
+.ok { position:absolute; top:calc(50% - 34px); width:40px; height:40px; padding:0; border-radius:20px; background:rgba(255,255,255,.92); color:#1E1E24; font-size:22px; line-height:40px; box-shadow:0 2px 10px rgba(0,0,0,.3); }
+.ok.geri { left:8px; } .ok.ileri { right:8px; }
+.ok[disabled] { opacity:0; pointer-events:none; }
+.bilgi { min-width:0; }
+ol { margin:0 0 12px; padding-left:22px; font-size:15px; }
+li { margin:3px 0; }
+.ses { margin:0 0 12px; background:var(--zemin); border-radius:10px; padding:10px 14px; font-size:15px; white-space:pre-line; }
+.ses b { color:var(--yesil); font-size:12px; letter-spacing:.06em; text-transform:uppercase; display:block; margin-bottom:3px; white-space:normal; }
+.kontrol { margin:0 0 12px; background:var(--uyari); border-left:4px solid var(--uyariCizgi); border-radius:8px; padding:8px 12px; font-size:14px; }
+.kontrol b { display:block; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ikincil); }
+.karar { display:flex; gap:10px; flex-wrap:wrap; }
+.sec { flex:1 1 180px; display:flex; align-items:center; gap:10px; padding:12px 14px; border-radius:10px; border:2px solid var(--cizgi); cursor:pointer; font-weight:600; font-size:16px; }
+.sec input { width:20px; height:20px; accent-color:var(--mavi); }
+.sec.onay:has(input:checked) { border-color:var(--yesil); background:var(--onayZemin); }
+.sec.duz:has(input:checked) { border-color:var(--lale); background:var(--duzZemin); }
+textarea { width:100%; margin-top:10px; min-height:64px; border-radius:10px; border:1px solid var(--cizgi); padding:10px 12px; font:inherit; font-size:15px; resize:vertical; background:var(--kart); color:var(--metin); }
+.yanitlar { margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+.yanit { display:grid; grid-template-columns:auto 1fr; gap:4px 12px; padding:10px 14px; border-radius:10px; background:var(--zemin); border-left:4px solid var(--cizgi); font-size:14px; }
+.yanit.onay { border-left-color:var(--yesil); } .yanit.duzeltme { border-left-color:var(--lale); }
+.yanit .kim { font-weight:700; } .yanit .ne { grid-column:1 / -1; white-space:pre-wrap; }
+.yanit .zaman { color:var(--ikincil); font-size:13px; text-align:right; }
+.yanitlar h4 { margin:4px 0 0; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--ikincil); }
+.gonder { position:sticky; bottom:0; background:var(--kart); border-top:1px solid var(--cizgi); padding:12px 16px; box-shadow:0 -4px 14px rgba(0,0,0,.08); }
+.gonder .ic { max-width:1100px; margin:0 auto; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.gonder input { flex:1 1 200px; min-width:0; padding:11px 12px; border-radius:10px; border:1px solid var(--cizgi); font:inherit; background:var(--kart); color:var(--metin); }
+.durum { flex:1 1 100%; font-size:14px; color:var(--ikincil); }
+button, .wa { border:0; border-radius:10px; padding:12px 16px; font:inherit; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; }
+.kaydet { background:var(--mavi); color:#fff; }
+.kaydet[disabled] { opacity:.6; cursor:wait; }
+[hidden] { display:none !important; }
+.kaydet.oldu { background:var(--yesil); }
+.perde { position:fixed; inset:0; background:rgba(20,30,40,.55); display:none; align-items:center; justify-content:center; padding:24px; z-index:50; }
+.perde.acik { display:flex; }
+.kutu { background:var(--kart); color:var(--metin); border-radius:18px; padding:28px 24px; max-width:420px; width:100%; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+.kutu .simge { font-size:56px; line-height:1; margin-bottom:10px; }
+.kutu h3 { margin:0 0 8px; font-size:22px; }
+.kutu p { margin:0 0 18px; color:var(--ikincil); font-size:15px; line-height:1.4; }
+.kutu button { width:100%; }
+.kutu.bekle .simge { animation:don 1s linear infinite; display:inline-block; }
+.kutu.oldu h3 { color:var(--yesil); } .kutu.sorun h3 { color:var(--lale); }
+@keyframes don { to { transform:rotate(360deg); } }
+.wa { background:var(--wa); color:#fff; }
+.kopya { background:#E8ECEA; color:#1E1E24; }
+@media (max-width: 720px) {
+  .ikili { grid-template-columns:1fr; }
+  .medya video { max-width:340px; margin:0 auto; }
+  .medya.kare { max-width:420px; margin:0 auto; width:100%; }
+  h1 { font-size:22px; }
+  .gonder { position:static; box-shadow:none; border-top:0; background:transparent; padding:0 16px 24px; }
+  .gonder button, .gonder .wa { flex:1 1 45%; text-align:center; }
+}
+</style>
+</head>
+<body>
+<header><div class="ic">
+  <div class="ust"><img class="logo" src="baykus.png" alt="EBA baykuşu">
+  <div><h1>Yeni EBA · Sosyal Medya İçerikleri · Onay</h1>
+  <p>18 içerik · 7 seri pilotu + 11 tanıtım Reels'i · 29.10.2026</p></div></div>
+</div></header>
+<main>
+  <div class="genel"><table>
+    <tr><td>Yayın</td><td>MEB ve YEĞİTEK resmî hesapları (Instagram, TikTok, X, Facebook, LinkedIn).</td></tr>
+    <tr><td>Kimlik</td><td>Açılış “Hey Kâşif!”, kapanış <b>#BirAdımÖnde</b>; maskot EBA baykuşu. Öğrenci adı görünen yerlerde baş harfler dışında yıldızla gizlendi.</td></tr>
+    <tr><td>Format</td><td>Reels 1080×1920 (9:16), kaydırmalı gönderiler 1080×1350 (4:5). Ekranlar Yeni EBA'nın gerçek arayüzünden; pilotlarda tarayıcı görünmüyor, içerik telefon/tablet mock-up'ı içinde tam ekran.</td></tr>
+    <tr><td>Ses</td><td>Her videoda kendine özgü müzik ve efekt var; hepsi özgün olarak üretildi, telif sorunu yok. Ses seviyesi -14 LUFS (sosyal medya standardı). Seslendirme yok.</td></tr>
+    <tr><td>İzleme</td><td>Bu sayfadaki videolar hızlı açılsın diye 720p sıkıştırılmıştır; yayın dosyaları 1080×1920.</td></tr>
+    <tr><td>Nasıl?</td><td>Videoyu izleyin ya da kareleri kaydırın; “Onaylıyorum” ya da “Düzeltme istiyorum” seçip gerekirse not yazın. En altta adınızı yazıp <b>Kaydet</b>. Kayıt tamamlanınca yeşil “Kaydedildi” kutusu çıkar ve yanıtınız “Gelen yanıtlar” altında görünür. İsterseniz “WhatsApp ile gönder” ya da “Kopyala”.</td></tr>
+  </table></div>
+  <div class="ozet" id="ozet">Yanıtlar yükleniyor…</div>
+  <nav class="icindekiler" id="icindekiler"></nav>
+  <div class="grup"><h3>A · Seri pilotları</h3><span>7 seri, her birinden bir bölüm · 4 Reels + 3 kaydırmalı</span></div>
+{{PILOTLAR}}
+  <div class="grup"><h3>B · Yeni EBA tanıtım Reels'leri</h3><span>11 video · öğrenci, veli, öğretmen ve kütüphane</span></div>
+{{REELS}}
+</main>
+<div class="gonder"><div class="ic">
+  <input id="ad" placeholder="Ad Soyad (gerekli)">
+  <button class="kaydet" id="kaydet" type="button">Kaydet</button>
+  <a class="wa" id="wa" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp ile gönder</a>
+  <button class="kopya" id="kopya" type="button">Kopyala</button>
+  <div class="durum" id="durum"></div>
+</div></div>
+<div class="perde" id="perde" role="dialog" aria-live="assertive"><div class="kutu" id="kutu">
+  <div class="simge" id="kSimge">⏳</div><h3 id="kBaslik">Kaydediliyor…</h3><p id="kMetin">Lütfen bekleyin.</p>
+  <button class="kaydet" id="kTamam" type="button" hidden>Tamam</button>
+</div></div>
+<script>
+window.ONAY_SCRIPT_URL = '{{URL}}';
+const ANAHTAR = 'eba-sosyal-medya-onay-2910';
+const bolumler = [...document.querySelectorAll('.icerik')];
+const durum = (t) => { document.getElementById('durum').textContent = t; };
+document.getElementById('icindekiler').innerHTML = bolumler.map(b => '<a href="#' + b.id + '" data-no="' + b.dataset.no + '">' + b.dataset.no + '</a>').join('');
+// Kaydırmalılar: ok düğmeleri + sayaç
+document.querySelectorAll('.medya.kare').forEach(m => {
+  const s = m.querySelector('.serit'), n = s.children.length, ip = m.querySelector('.ipucu');
+  const g = document.createElement('button'), i = document.createElement('button');
+  g.className = 'ok geri'; g.type = 'button'; g.textContent = '‹'; g.setAttribute('aria-label', 'Önceki kare');
+  i.className = 'ok ileri'; i.type = 'button'; i.textContent = '›'; i.setAttribute('aria-label', 'Sonraki kare');
+  m.append(g, i);
+  const sira = () => Math.round(s.scrollLeft / (s.clientWidth + 10));
+  const tazele = () => { const k = sira(); g.disabled = k <= 0; i.disabled = k >= n - 1; ip.textContent = (k + 1) + ' / ' + n + ' · kaydırın ya da oklara basın'; };
+  g.onclick = () => s.scrollBy({left: -(s.clientWidth + 10), behavior: 'smooth'});
+  i.onclick = () => s.scrollBy({left: s.clientWidth + 10, behavior: 'smooth'});
+  s.addEventListener('scroll', () => requestAnimationFrame(tazele)); tazele();
+});
+// Bir video başlayınca diğerleri dursun
+document.querySelectorAll('video').forEach(v => v.addEventListener('play', () => document.querySelectorAll('video').forEach(o => { if (o !== v) o.pause(); })));
+function oku() { try { return JSON.parse(localStorage.getItem(ANAHTAR) || '{}'); } catch (e) { return {}; } }
+function yaz(v) { try { localStorage.setItem(ANAHTAR, JSON.stringify(v)); } catch (e) {} }
+function topla() {
+  const v = {ad: document.getElementById('ad').value.trim()};
+  bolumler.forEach(b => { const no = b.dataset.no; const s = b.querySelector('input:checked'); v['k' + no] = s ? s.value : ''; v['n' + no] = b.querySelector('textarea').value; });
+  return v;
+}
+function metin() {
+  const v = topla();
+  const satir = bolumler.map(b => {
+    const no = b.dataset.no, k = v['k' + no], n = v['n' + no].trim();
+    if (!k && !n) return null;
+    const d = k === 'onay' ? 'ONAY' : k === 'duzeltme' ? 'DÜZELTME' : 'işaretlenmedi';
+    return no + '. ' + b.dataset.ad + ': ' + d + (n ? ' — ' + n : '');
+  }).filter(Boolean);
+  return 'Yeni EBA sosyal medya içerikleri — onay' + (v.ad ? ' (' + v.ad + ')' : '') + '\n' + (satir.length ? satir.join('\n') : '(henüz seçim yok)');
+}
+function isaretle() {
+  const v = topla();
+  bolumler.forEach(b => { const k = v['k' + b.dataset.no]; b.classList.toggle('onay', k === 'onay'); b.classList.toggle('duzeltme', k === 'duzeltme');
+    const a = document.querySelector('nav.icindekiler a[data-no="' + b.dataset.no + '"]'); if (a) { a.classList.toggle('onay', k === 'onay'); a.classList.toggle('duzeltme', k === 'duzeltme'); } });
+}
+function guncelle() {
+  const v = topla(); yaz(v); isaretle();
+  document.getElementById('wa').href = 'https://wa.me/?text=' + encodeURIComponent(metin());
+}
+(function yukle() {
+  const v = oku();
+  if (v.ad) document.getElementById('ad').value = v.ad;
+  bolumler.forEach(b => { const no = b.dataset.no; if (v['k' + no]) { const r = b.querySelector('input[value="' + v['k' + no] + '"]'); if (r) r.checked = true; } if (v['n' + no]) b.querySelector('textarea').value = v['n' + no]; });
+  guncelle();
+})();
+document.addEventListener('input', guncelle);
+document.addEventListener('change', guncelle);
+document.getElementById('kopya').onclick = async () => {
+  const t = metin();
+  try { await navigator.clipboard.writeText(t); durum('Kopyalandı; mesaja yapıştırabilirsiniz.'); }
+  catch (e) { const a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); document.execCommand('copy'); a.remove(); durum('Kopyalandı; mesaja yapıştırabilirsiniz.'); }
+};
+
+/* ── Paylaşılan yanıtlar: Google Apps Script web uygulaması (apps-script/Code.gs) ── */
+const URL = window.ONAY_SCRIPT_URL;
+const hazir = () => URL && !URL.includes('BURAYA');
+const zamanYaz = (t) => { try { return new Date(t).toLocaleString('tr-TR', {day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'}); } catch (e) { return t; } };
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+function ciz(satirlar) {
+  const son = {};
+  satirlar.forEach(s => { son[s.no + '|' + s.ad] = s; });
+  const liste = Object.values(son).sort((a, b) => new Date(b.zaman) - new Date(a.zaman));
+  let onay = 0, duz = 0;
+  bolumler.forEach(b => {
+    const no = b.dataset.no;
+    const y = liste.filter(s => String(s.no) === String(no));
+    const kutu = b.querySelector('.yanitlar');
+    if (!y.length) { kutu.innerHTML = ''; return; }
+    const d = y.some(s => s.karar === 'duzeltme'), o = !d && y.some(s => s.karar === 'onay');
+    if (d) duz++; else if (o) onay++;
+    b.classList.toggle('duzeltme', d); b.classList.toggle('onay', o);
+    const a = document.querySelector('nav.icindekiler a[data-no="' + no + '"]'); if (a) { a.classList.toggle('duzeltme', d); a.classList.toggle('onay', o); }
+    kutu.innerHTML = '<h4>Gelen yanıtlar</h4>' + y.map(s => '<div class="yanit ' + s.karar + '"><span class="kim">' + esc(s.ad) + ' · ' + (s.karar === 'onay' ? 'Onaylıyorum' : s.karar === 'duzeltme' ? 'Düzeltme istiyorum' : '—') + '</span><span class="zaman">' + esc(zamanYaz(s.zaman)) + '</span>' + (s.not ? '<span class="ne">' + esc(s.not) + '</span>' : '') + '</div>').join('');
+  });
+  const bos = bolumler.length - onay - duz;
+  document.getElementById('ozet').innerHTML = '<span>Son durum (en son yanıtlara göre):</span><span class="rozet o">' + onay + ' onay</span><span class="rozet d">' + duz + ' düzeltme</span><span class="rozet b">' + bos + ' yanıtsız</span>';
+}
+async function yanitlariGetir() {
+  if (!hazir()) { document.getElementById('ozet').textContent = 'Ortak yanıt kaydı henüz bağlı değil; seçimleriniz bu cihazda saklanır. Lütfen “WhatsApp ile gönder” ya da “Kopyala” ile iletin.'; return; }
+  try {
+    const r = await fetch(URL + '?t=' + Date.now(), {cache: 'no-store'});
+    const j = await r.json();
+    ciz(j.satirlar || []);
+  } catch (e) { document.getElementById('ozet').textContent = 'Yanıtlar yüklenemedi; sayfayı yenileyin.'; }
+}
+const kutu = (tur, simge, baslik, metin, dugme) => {
+  const k = document.getElementById('kutu'); k.className = 'kutu ' + tur;
+  document.getElementById('kSimge').textContent = simge; document.getElementById('kBaslik').textContent = baslik; document.getElementById('kMetin').textContent = metin;
+  document.getElementById('kTamam').hidden = !dugme; document.getElementById('perde').classList.add('acik');
+};
+document.getElementById('kTamam').onclick = () => document.getElementById('perde').classList.remove('acik');
+async function satirSay() { try { const r = await fetch(URL + '?t=' + Date.now(), {cache: 'no-store'}); const j = await r.json(); return (j.satirlar || []).length; } catch (e) { return -1; } }
+document.getElementById('kaydet').onclick = async () => {
+  const v = topla();
+  if (!v.ad) { kutu('sorun', '✋', 'Adınızı yazın', 'Kaydetmeden önce alttaki kutuya adınızı yazmanız gerekiyor.', true); document.getElementById('ad').focus(); return; }
+  const kayitlar = bolumler.map(b => ({no: b.dataset.no, ad: v.ad, karar: v['k' + b.dataset.no], not: (v['n' + b.dataset.no] || '').trim()})).filter(k => k.karar || k.not);
+  if (!kayitlar.length) { kutu('sorun', '✋', 'Seçim yok', 'En az bir içerik için “Onaylıyorum” ya da “Düzeltme istiyorum” seçin ya da bir not yazın.', true); return; }
+  if (!hazir()) { kutu('sorun', '⚠️', 'Kayıt bağlı değil', 'Lütfen “Kopyala” ya da “WhatsApp ile gönder” ile iletin.', true); return; }
+  const dugme = document.getElementById('kaydet'); dugme.disabled = true; durum('Kaydediliyor…');
+  kutu('bekle', '⏳', 'Kaydediliyor…', 'Yanıtlarınız gönderiliyor, lütfen bekleyin.', false);
+  const onceki = await satirSay();
+  let gonderildi = false;
+  try {
+    await fetch(URL, {method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'text/plain;charset=utf-8'}, body: JSON.stringify({kayitlar})});
+    gonderildi = true;
+  } catch (e) {}
+  let dogrulandi = false;
+  if (gonderildi) {
+    for (let i = 0; i < 12 && !dogrulandi; i++) {
+      await new Promise(r => setTimeout(r, 2000));
+      const simdi = await satirSay();
+      if (onceki >= 0 && simdi >= onceki + kayitlar.length) dogrulandi = true;
+    }
+  }
+  await yanitlariGetir();
+  if (dogrulandi) {
+    kutu('oldu', '✅', 'Kaydedildi', kayitlar.length + ' içerik için yanıtınız kaydedildi ve “Gelen yanıtlar” altında görünüyor. Teşekkürler!', true);
+    durum('Kaydedildi (' + kayitlar.length + ' içerik). Teşekkürler.');
+    dugme.classList.add('oldu'); dugme.textContent = 'Kaydedildi ✓'; setTimeout(() => { dugme.classList.remove('oldu'); dugme.textContent = 'Kaydet'; }, 8000);
+  } else if (gonderildi) {
+    kutu('sorun', '⚠️', 'Gönderildi, doğrulanamadı', 'Yanıtınız gönderildi ama sayfada henüz görünmedi. Sayfayı yenileyip “Gelen yanıtlar” altına bakın; görünmüyorsa “Kopyala” ile WhatsApp’tan iletin.', true);
+    durum('Gönderildi; doğrulanamadı.');
+  } else {
+    kutu('sorun', '❌', 'Kaydedilemedi', 'Bağlantı kurulamadı. Lütfen “Kopyala” ya da “WhatsApp ile gönder” ile iletin.', true);
+    durum('Kaydedilemedi.');
+  }
+  dugme.disabled = false;
+};
+yanitlariGetir();
+</script>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Yeni EBA Sosyal Medya Onayı</title>
+<style>
+:root { --mavi:#E30A17; --yesil:#2E9E5B; --lale:#D9480F; --zemin:#F7F5F2; --kart:#fff; --metin:#1E1E24; --ikincil:#6B6B75; --cizgi:#E4E1DC; --onayZemin:#EAF7F0; --duzZemin:#FDEDE6; --wa:#1FA855; --uyari:#FFF6E0; --uyariCizgi:#E8B53A; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --zemin:#14151A; --kart:#1E2027; --metin:#ECECF1; --ikincil:#A3A3AE; --cizgi:#33353F; --onayZemin:#16301F; --duzZemin:#3A1E14; --uyari:#3A3014; --uyariCizgi:#B98B1C; } }
+:root[data-theme="dark"] { --zemin:#14151A; --kart:#1E2027; --metin:#ECECF1; --ikincil:#A3A3AE; --cizgi:#33353F; --onayZemin:#16301F; --duzZemin:#3A1E14; --uyari:#3A3014; --uyariCizgi:#B98B1C; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--zemin); color:var(--metin); font-family:-apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height:1.5; }
+header { background:var(--mavi); color:#fff; padding:28px 16px 24px; }
+header .ic, main { max-width:1100px; margin:0 auto; }
+header .ust { display:flex; gap:16px; align-items:center; }
+header .logo { width:64px; height:64px; border-radius:50%; border:3px solid #fff; flex:0 0 auto; background:#fff; }
+h1 { margin:0 0 6px; font-size:26px; line-height:1.2; }
+header p { margin:0; opacity:.92; }
+main { padding:16px; }
+.genel { background:var(--kart); border-radius:14px; padding:18px 20px; margin:8px 0 18px; border:1px solid var(--cizgi); }
+.genel table { width:100%; border-collapse:collapse; font-size:15px; }
+.genel td { padding:7px 0; border-bottom:1px solid var(--cizgi); vertical-align:top; }
+.genel td:first-child { width:110px; color:var(--ikincil); font-weight:600; padding-right:10px; }
+.ozet { background:var(--kart); border:1px solid var(--cizgi); border-radius:14px; padding:14px 20px; margin:0 0 18px; font-size:15px; display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+.ozet .rozet { display:inline-block; padding:4px 12px; border-radius:999px; font-weight:700; font-size:14px; }
+.rozet.o { background:var(--onayZemin); color:#1E7A4F; } .rozet.d { background:var(--duzZemin); color:#B5301B; } .rozet.b { background:var(--zemin); color:var(--ikincil); }
+.grup { margin:30px 0 12px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.grup h3 { margin:0; font-size:22px; }
+.grup span { color:var(--ikincil); font-size:15px; }
+nav.icindekiler { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 18px; }
+nav.icindekiler a { text-decoration:none; color:var(--metin); background:var(--kart); border:1px solid var(--cizgi); border-radius:999px; padding:5px 12px; font-size:13px; font-weight:600; }
+nav.icindekiler a.onay { border-color:var(--yesil); background:var(--onayZemin); } nav.icindekiler a.duzeltme { border-color:var(--lale); background:var(--duzZemin); }
+.icerik { background:var(--kart); border-radius:14px; padding:18px 20px 20px; margin:0 0 18px; border:2px solid var(--cizgi); scroll-margin-top:12px; }
+.icerik.onay { border-color:var(--yesil); }
+.icerik.duzeltme { border-color:var(--lale); }
+.bas { display:flex; gap:14px; align-items:center; margin-bottom:14px; }
+.no { flex:0 0 auto; min-width:46px; height:46px; padding:0 8px; border-radius:23px; background:var(--mavi); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; }
+h2 { margin:0; font-size:20px; line-height:1.25; }
+.kunye { margin:2px 0 0; color:var(--ikincil); font-size:14px; }
+.ikili { display:grid; grid-template-columns:minmax(0, 320px) minmax(0, 1fr); gap:22px; align-items:start; }
+.medya video { width:100%; aspect-ratio:9 / 16; border-radius:14px; background:#0B0F22; display:block; }
+.medya.kare { min-width:0; }
+.serit { display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; border-radius:12px; padding-bottom:6px; }
+.serit img { flex:0 0 100%; width:100%; aspect-ratio:4 / 5; object-fit:cover; scroll-snap-align:start; border-radius:12px; display:block; background:#0B0F22; }
+.ipucu { margin:6px 0 0; color:var(--ikincil); font-size:13px; text-align:center; }
+.medya.kare { position:relative; }
+.ok { position:absolute; top:calc(50% - 34px); width:40px; height:40px; padding:0; border-radius:20px; background:rgba(255,255,255,.92); color:#1E1E24; font-size:22px; line-height:40px; box-shadow:0 2px 10px rgba(0,0,0,.3); }
+.ok.geri { left:8px; } .ok.ileri { right:8px; }
+.ok[disabled] { opacity:0; pointer-events:none; }
+.bilgi { min-width:0; }
+ol { margin:0 0 12px; padding-left:22px; font-size:15px; }
+li { margin:3px 0; }
+.ses { margin:0 0 12px; background:var(--zemin); border-radius:10px; padding:10px 14px; font-size:15px; white-space:pre-line; }
+.ses b { color:var(--yesil); font-size:12px; letter-spacing:.06em; text-transform:uppercase; display:block; margin-bottom:3px; white-space:normal; }
+.kontrol { margin:0 0 12px; background:var(--uyari); border-left:4px solid var(--uyariCizgi); border-radius:8px; padding:8px 12px; font-size:14px; }
+.kontrol b { display:block; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ikincil); }
+.karar { display:flex; gap:10px; flex-wrap:wrap; }
+.sec { flex:1 1 180px; display:flex; align-items:center; gap:10px; padding:12px 14px; border-radius:10px; border:2px solid var(--cizgi); cursor:pointer; font-weight:600; font-size:16px; }
+.sec input { width:20px; height:20px; accent-color:var(--mavi); }
+.sec.onay:has(input:checked) { border-color:var(--yesil); background:var(--onayZemin); }
+.sec.duz:has(input:checked) { border-color:var(--lale); background:var(--duzZemin); }
+textarea { width:100%; margin-top:10px; min-height:64px; border-radius:10px; border:1px solid var(--cizgi); padding:10px 12px; font:inherit; font-size:15px; resize:vertical; background:var(--kart); color:var(--metin); }
+.yanitlar { margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+.yanit { display:grid; grid-template-columns:auto 1fr; gap:4px 12px; padding:10px 14px; border-radius:10px; background:var(--zemin); border-left:4px solid var(--cizgi); font-size:14px; }
+.yanit.onay { border-left-color:var(--yesil); } .yanit.duzeltme { border-left-color:var(--lale); }
+.yanit .kim { font-weight:700; } .yanit .ne { grid-column:1 / -1; white-space:pre-wrap; }
+.yanit .zaman { color:var(--ikincil); font-size:13px; text-align:right; }
+.yanitlar h4 { margin:4px 0 0; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--ikincil); }
+.gonder { position:sticky; bottom:0; background:var(--kart); border-top:1px solid var(--cizgi); padding:12px 16px; box-shadow:0 -4px 14px rgba(0,0,0,.08); }
+.gonder .ic { max-width:1100px; margin:0 auto; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.gonder input { flex:1 1 200px; min-width:0; padding:11px 12px; border-radius:10px; border:1px solid var(--cizgi); font:inherit; background:var(--kart); color:var(--metin); }
+.durum { flex:1 1 100%; font-size:14px; color:var(--ikincil); }
+button, .wa { border:0; border-radius:10px; padding:12px 16px; font:inherit; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; }
+.kaydet { background:var(--mavi); color:#fff; }
+.kaydet[disabled] { opacity:.6; cursor:wait; }
+[hidden] { display:none !important; }
+.kaydet.oldu { background:var(--yesil); }
+.perde { position:fixed; inset:0; background:rgba(20,30,40,.55); display:none; align-items:center; justify-content:center; padding:24px; z-index:50; }
+.perde.acik { display:flex; }
+.kutu { background:var(--kart); color:var(--metin); border-radius:18px; padding:28px 24px; max-width:420px; width:100%; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+.kutu .simge { font-size:56px; line-height:1; margin-bottom:10px; }
+.kutu h3 { margin:0 0 8px; font-size:22px; }
+.kutu p { margin:0 0 18px; color:var(--ikincil); font-size:15px; line-height:1.4; }
+.kutu button { width:100%; }
+.kutu.bekle .simge { animation:don 1s linear infinite; display:inline-block; }
+.kutu.oldu h3 { color:var(--yesil); } .kutu.sorun h3 { color:var(--lale); }
+@keyframes don { to { transform:rotate(360deg); } }
+.wa { background:var(--wa); color:#fff; }
+.kopya { background:#E8ECEA; color:#1E1E24; }
+@media (max-width: 720px) {
+  .ikili { grid-template-columns:1fr; }
+  .medya video { max-width:340px; margin:0 auto; }
+  .medya.kare { max-width:420px; margin:0 auto; width:100%; }
+  h1 { font-size:22px; }
+  .gonder { position:static; box-shadow:none; border-top:0; background:transparent; padding:0 16px 24px; }
+  .gonder button, .gonder .wa { flex:1 1 45%; text-align:center; }
+}
+</style>
+</head>
+<body>
+<header><div class="ic">
+  <div class="ust"><img class="logo" src="baykus.png" alt="EBA baykuşu">
+  <div><h1>Yeni EBA · Sosyal Medya İçerikleri · Onay</h1>
+  <p>18 içerik · 7 seri pilotu + 11 tanıtım Reels'i · 29.10.2026</p></div></div>
+</div></header>
+<main>
+  <div class="genel"><table>
+    <tr><td>Yayın</td><td>MEB ve YEĞİTEK resmî hesapları (Instagram, TikTok, X, Facebook, LinkedIn).</td></tr>
+    <tr><td>Kimlik</td><td>Açılış “Hey Kâşif!”, kapanış <b>#BirAdımÖnde</b>; maskot EBA baykuşu. Öğrenci adı görünen yerlerde baş harfler dışında yıldızla gizlendi.</td></tr>
+    <tr><td>Format</td><td>Reels 1080×1920 (9:16), kaydırmalı gönderiler 1080×1350 (4:5). Ekranlar Yeni EBA'nın gerçek arayüzünden; pilotlarda tarayıcı görünmüyor, içerik telefon/tablet mock-up'ı içinde tam ekran.</td></tr>
+    <tr><td>Ses</td><td>Her videoda kendine özgü müzik ve efekt var; hepsi özgün olarak üretildi, telif sorunu yok. Ses seviyesi -14 LUFS (sosyal medya standardı). Seslendirme yok.</td></tr>
+    <tr><td>İzleme</td><td>Bu sayfadaki videolar hızlı açılsın diye 720p sıkıştırılmıştır; yayın dosyaları 1080×1920.</td></tr>
+    <tr><td>Nasıl?</td><td>Videoyu izleyin ya da kareleri kaydırın; “Onaylıyorum” ya da “Düzeltme istiyorum” seçip gerekirse not yazın. En altta adınızı yazıp <b>Kaydet</b>. Kayıt tamamlanınca yeşil “Kaydedildi” kutusu çıkar ve yanıtınız “Gelen yanıtlar” altında görünür. İsterseniz “WhatsApp ile gönder” ya da “Kopyala”.</td></tr>
+  </table></div>
+  <div class="ozet" id="ozet">Yanıtlar yükleniyor…</div>
+  <nav class="icindekiler" id="icindekiler"></nav>
+  <div class="grup"><h3>A · Seri pilotları</h3><span>7 seri, her birinden bir bölüm · 4 Reels + 3 kaydırmalı</span></div>
+<section class="icerik" id="P1" data-no="P1" data-ad="EBA&#x27;DA BU DA VAR · TİYATRO">
+  <div class="bas"><span class="no">P1</span><div><h2>EBA&#x27;DA BU DA VAR · TİYATRO</h2><p class="kunye">Seri pilotu · Reels 1080×1920 · telefon mock-up&#x27;ı, özgün müzik + efekt · 19,5 sn · Hedef: Herkes</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/p1.jpg"><source src="video/p1.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      <ol><li>“Hey Kâşif!” + “EBA&#x27;da tiyatro da var!”</li><li>Şüheda 1915 sahneleri → Cumhuriyete Doğru</li><li>Telefonda izleme: Kütüphane › Tiyatro</li><li>Kapanış: “Perde EBA&#x27;da açılıyor!” #BirAdımÖnde</li></ol>
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Hey Kâşif! 🎭 EBA&#x27;da tiyatro da var!
+Şüheda 1915 ile Çanakkale&#x27;nin hikâyesini, Cumhuriyete Doğru ile 100. yılın coşkusunu sahneden izle.
+📍 EBA › Kütüphane › Tiyatro · eba.gov.tr
+#BirAdımÖnde #YeniEBA #EBAdaBuDaVar</div>
+      
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kP1" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kP1" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="P2" data-no="P2" data-ad="YAPAY ZEKÂ&#x27;YA SORDUM · AY">
+  <div class="bas"><span class="no">P2</span><div><h2>YAPAY ZEKÂ&#x27;YA SORDUM · AY</h2><p class="kunye">Seri pilotu · Reels 1080×1920 · telefon mock-up&#x27;ı, özgün müzik + efekt · 20 sn · Hedef: Öğrenci</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/p2.jpg"><source src="video/p2.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      <ol><li>Soru: “Ay neden her gece farklı görünüyor?”</li><li>1 Sorunu yaz → 2 Gönder → 3 Sana göre anlatsın</li><li>4 Kısa özet: Yeni ay, Hilal, İlk dördün, Dolunay vurgulanır</li><li>Kapanış: “Sen ne sorardın? Yorumlara yaz!”</li></ol>
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Hey Kâşif! 🌙 Ay neden her gece farklı görünüyor?
+EBA Yapay Zekâ&#x27;ya sorduk, kısa ve anlaşılır cevapladı. Sıra sende: Sen ne sorardın? Yorumlara yaz, bir sonraki bölümde soralım!
+#BirAdımÖnde #YeniEBA #YapayZekayaSordum</div>
+      <p class="kontrol"><b>Kontrol</b>Cevaptaki “Her hafta bir kez bu şekiller değişir” cümlesi yaklaşık bir anlatım (evreler ~7 günde bir değişir); bir fen öğretmeninin okuması önerilir. Öğrenci adı baş harfler hariç yıldızla gizlendi.</p>
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kP2" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kP2" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="P3" data-no="P3" data-ad="HAFTANIN OYUNU · HÜCRE KÖY">
+  <div class="bas"><span class="no">P3</span><div><h2>HAFTANIN OYUNU · HÜCRE KÖY</h2><p class="kunye">Seri pilotu · Reels 1080×1920 · yatay telefon mock-up&#x27;ı, özgün müzik + efekt · 16,5 sn · Hedef: Öğrenci</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/p3.jpg"><source src="video/p3.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      <ol><li>“Bu haftanın oyunu: Hücre Köy”</li><li>Telefon yan döner → BAŞLA&#x27;ya dokunuş → oyun içi</li><li>Hücreni yönet · Görevleri sırayla tamamla · Gün gün ilerle</li><li>Kapanış: “Oyna, keşfet, öğren!”</li></ol>
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Hey Kâşif! 🧬 Bu haftanın oyunu: Hücre Köy!
+Hücreni yönet, görevleri tamamla, gün gün ilerle. Bilimi oynayarak keşfet.
+📍 EBA › Oyun ve Uygulamalar · eba.gov.tr
+#BirAdımÖnde #YeniEBA #HaftanınOyunu</div>
+      
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kP3" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kP3" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="P4" data-no="P4" data-ad="60 SANİYEDE KONU · BİLEŞKE KUVVET">
+  <div class="bas"><span class="no">P4</span><div><h2>60 SANİYEDE KONU · BİLEŞKE KUVVET</h2><p class="kunye">Seri pilotu · Reels 1080×1920 · tablet mock-up&#x27;ı, özgün müzik + efekt · 19,5 sn · Hedef: Öğrenci</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/p4.jpg"><source src="video/p4.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      <ol><li>“Bileşke Kuvvet 3 adımda!” · 6. Sınıf Fen Bilimleri</li><li>Konunu seç → 1 Hazır mıyız? → 2 Öğrenelim → 3 Değerlendirelim</li><li>Kapanış: “Her konu 3 adımda!”</li></ol>
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Hey Kâşif! ⚡ Bileşke Kuvvet&#x27;i 3 adımda öğren:
+1️⃣ Hazır mıyız? ile ön bilgini yokla
+2️⃣ Öğrenelim ile etkileşimli içerik ve videoları izle
+3️⃣ Değerlendirelim ile kendini test et
+📍 EBA › Dersler › Fen Bilimleri · eba.gov.tr
+#BirAdımÖnde #YeniEBA #60SaniyedeKonu</div>
+      <p class="kontrol"><b>Kontrol</b>Ders ekranları öğretmen hesabından alındı (öğretmene özel paneller kırpıldı); istenirse öğrenci hesabından yeniden çekilir.</p>
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kP4" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kP4" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="P5" data-no="P5" data-ad="KALDIĞIN YERDEN">
+  <div class="bas"><span class="no">P5</span><div><h2>KALDIĞIN YERDEN</h2><p class="kunye">Seri pilotu · Kaydırmalı gönderi 1080×1350 · 5 kare · Hedef: Öğrenci</p></div></div>
+  <div class="ikili"><div class="medya kare"><div class="serit"><img src="kare/05_KaldiginYerden_1.jpg" alt="KALDIĞIN YERDEN — 1. kare" loading="lazy"><img src="kare/05_KaldiginYerden_2.jpg" alt="KALDIĞIN YERDEN — 2. kare" loading="lazy"><img src="kare/05_KaldiginYerden_3.jpg" alt="KALDIĞIN YERDEN — 3. kare" loading="lazy"><img src="kare/05_KaldiginYerden_4.jpg" alt="KALDIĞIN YERDEN — 4. kare" loading="lazy"><img src="kare/05_KaldiginYerden_5.jpg" alt="KALDIĞIN YERDEN — 5. kare" loading="lazy"></div><p class="ipucu">Kareleri yana kaydırın · 5 kare</p></div>
+    <div class="bilgi">
+      <ol><li>Kapak: “Yarım kalan bir kitabın mı var?”</li><li>Ana sayfada tek dokunuş (Kaldığın Yerden Devam Et vurgulu)</li><li>Seni tam orada bekliyor: Mars Öyküleri · Ara verildi</li><li>Hepsi kaldığın yerden · Kapanış</li></ol>
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Hey Kâşif! 📚 Yarım kalan bir kitabın mı var? Merak etme, EBA hatırlıyor.
+Ana sayfadaki “Kaldığın Yerden Devam Et” ile tek dokunuşla devam et.
+#BirAdımÖnde #YeniEBA</div>
+      
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kP5" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kP5" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="P6" data-no="P6" data-ad="SEN DE ANLAT">
+  <div class="bas"><span class="no">P6</span><div><h2>SEN DE ANLAT</h2><p class="kunye">Seri pilotu · Kaydırmalı gönderi 1080×1350 · etkileşim · 4 kare · Hedef: Öğrenci</p></div></div>
+  <div class="ikili"><div class="medya kare"><div class="serit"><img src="kare/06_SenDeAnlat_1.jpg" alt="SEN DE ANLAT — 1. kare" loading="lazy"><img src="kare/06_SenDeAnlat_2.jpg" alt="SEN DE ANLAT — 2. kare" loading="lazy"><img src="kare/06_SenDeAnlat_3.jpg" alt="SEN DE ANLAT — 3. kare" loading="lazy"><img src="kare/06_SenDeAnlat_4.jpg" alt="SEN DE ANLAT — 4. kare" loading="lazy"></div><p class="ipucu">Kareleri yana kaydırın · 4 kare</p></div>
+    <div class="bilgi">
+      <ol><li>Kapak: “Yeni EBA&#x27;da en çok neyi sevdin?”</li><li>A Yapay Zekâ · B Tiyatro · C Oyunlar · D Kaldığın Yerden</li><li>“Harfini yorumlara yaz, nedenini de anlat!” · Kapanış</li></ol>
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Hey Kâşif! 💬 Yeni EBA&#x27;da en çok neyi sevdin?
+A) Yapay Zekâ B) Tiyatro C) Oyunlar D) Kaldığın Yerden
+Harfini yorumlara yaz, nedenini de anlat!
+#BirAdımÖnde #YeniEBA #SenDeAnlat</div>
+      <p class="kontrol"><b>Kontrol</b>Gerçek öğrenci alıntısı kullanılmadı; yorumlardan alıntı yapılacaksa veli onayı gerekir.</p>
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kP6" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kP6" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="P7" data-no="P7" data-ad="GÜVENLİ EBA · DUYURU / DOĞRULAMA">
+  <div class="bas"><span class="no">P7</span><div><h2>GÜVENLİ EBA · DUYURU / DOĞRULAMA</h2><p class="kunye">Seri pilotu · Kaydırmalı gönderi 1080×1350 · 5 kare · Hedef: Herkes</p></div></div>
+  <div class="ikili"><div class="medya kare"><div class="serit"><img src="kare/07_GuvenliEBA_1.jpg" alt="GÜVENLİ EBA · DUYURU / DOĞRULAMA — 1. kare" loading="lazy"><img src="kare/07_GuvenliEBA_2.jpg" alt="GÜVENLİ EBA · DUYURU / DOĞRULAMA — 2. kare" loading="lazy"><img src="kare/07_GuvenliEBA_3.jpg" alt="GÜVENLİ EBA · DUYURU / DOĞRULAMA — 3. kare" loading="lazy"><img src="kare/07_GuvenliEBA_4.jpg" alt="GÜVENLİ EBA · DUYURU / DOĞRULAMA — 4. kare" loading="lazy"><img src="kare/07_GuvenliEBA_5.jpg" alt="GÜVENLİ EBA · DUYURU / DOĞRULAMA — 5. kare" loading="lazy"></div><p class="ipucu">Kareleri yana kaydırın · 5 kare</p></div>
+    <div class="bilgi">
+      <ol><li>“EBA&#x27;yı güvenle kullanmanın 4 kuralı”</li><li>1 Doğru adres: eba.gov.tr · 2 Şifren sende kalsın</li><li>3 Kişisel bilgilerini yazma (Yapay Zekâ uyarısı)</li><li>4 Duyuruları resmî hesaplardan takip et, paylaşmadan önce doğrula</li></ol>
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Hey Kâşif! 🔒 EBA&#x27;yı güvenle kullanmanın 4 kuralı:
+✅ Adres çubuğunda eba.gov.tr olsun
+✅ Şifreni kimseyle paylaşma
+✅ Kişisel bilgilerini yazma
+✅ Duyuruları MEB ve YEĞİTEK&#x27;in resmî hesaplarından takip et
+#BirAdımÖnde #YeniEBA #GüvenliEBA</div>
+      
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kP7" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kP7" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+  <div class="grup"><h3>B · Yeni EBA tanıtım Reels'leri</h3><span>11 video · öğrenci, veli, öğretmen ve kütüphane</span></div>
+<section class="icerik" id="R01" data-no="R01" data-ad="ARTIK DERS ÇALIŞMAK SANA GÖRE">
+  <div class="bas"><span class="no">R01</span><div><h2>ARTIK DERS ÇALIŞMAK SANA GÖRE</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (parlak pop) + efekt · 22 sn · Hedef: Öğrenci, veli</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r01.jpg"><source src="video/r01.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Ders çalışmak artık sana göre! 🎒
+Renkli ana sayfan, kaldığın yerden devam eden derslerin, dijital kitapların, kütüphane ve eğitsel oyunlar… Hepsi Yeni EBA&#x27;da bir arada.
+👉 eba.gov.tr
+#YeniEBA #BirAdımÖnde #EBA</div>
+      <p class="kontrol"><b>Kontrol</b>Video yalnızca 1. sınıf arayüzünü gösteriyor; “her kademe” ifadesi kullanılmadı.</p>
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR01" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR01" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R02" data-no="R02" data-ad="DERS ÇALIŞIRKEN YALNIZ DEĞİLSİN">
+  <div class="bas"><span class="no">R02</span><div><h2>DERS ÇALIŞIRKEN YALNIZ DEĞİLSİN</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (synth arp) + efekt · 24 sn · Hedef: Öğrenci, veli</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r02.jpg"><source src="video/r02.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Bir konuda mı takıldın? EBA Yapay Zekâ&#x27;ya sor! ✨
+Derslerine odaklı, yaşına uygun ve adım adım açıklamalar Yeni EBA&#x27;da seni bekliyor.
+Örnek: “1. sınıf matematikte toplamayı elma örneğiyle anlatır mısın?” 🍎
+#YeniEBA #EBAYapayZekâ #BirAdımÖnde</div>
+      <p class="kontrol"><b>Kontrol</b>Bu cevapta kaynakça çıkmadığı için “kaynak gösterir” denmedi.</p>
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR02" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR02" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R03" data-no="R03" data-ad="ÖĞRENCİNİZ EBA&#x27;DA NE YAPTI?">
+  <div class="bas"><span class="no">R03</span><div><h2>ÖĞRENCİNİZ EBA&#x27;DA NE YAPTI?</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (piyano) + efekt · 19 sn · Hedef: Veli</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r03.jpg"><source src="video/r03.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Çocuğunuzun öğrenme yolculuğuna eşlik etmek artık daha kolay. 👨‍👩‍👧
+Yeni EBA veli ekranında tamamlanan içerikleri, sınavları, çalışmaları ve ders ilerlemesini tek bakışta görün.
+👉 eba.gov.tr · Veli girişi
+#YeniEBA #EBAVeli #BirAdımÖnde</div>
+      <p class="kontrol"><b>Kontrol</b>Videoda test veli ve öğrenci adları (Rukiye Yıldız, Doğa Yıldız) görünüyor.</p>
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR03" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR03" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R04" data-no="R04" data-ad="KİM NEREDE ZORLANIYOR?">
+  <div class="bas"><span class="no">R04</span><div><h2>KİM NEREDE ZORLANIYOR?</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (lo-fi) + efekt · 27 sn · Hedef: Öğretmen</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r04.jpg"><source src="video/r04.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Hangi öğrenciniz konuyu kavradı, hangisi hangi öğrenme çıktısında zorlanıyor? 📊
+Yeni EBA&#x27;nın performans haritası ve çalışma sonuçlarıyla sınıfınızı veriye dayalı olarak izleyin.
+#YeniEBA #EBAÖğretmen #BirAdımÖnde</div>
+      
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR04" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR04" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R05" data-no="R05" data-ad="DERS PLANI DAKİKALAR İÇİNDE">
+  <div class="bas"><span class="no">R05</span><div><h2>DERS PLANI DAKİKALAR İÇİNDE</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (piyano) + efekt · 33 sn · Hedef: Öğretmen</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r05.jpg"><source src="video/r05.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Öğrenme çıktısını seçin, içeriği ekleyin; Yeni EBA&#x27;nın yapay zekâ destekli ders planı aracı kaynakları adım adım hazırlasın. ⚡
+Etkileşim, keşif, açıklama, detaylandırma ve değerlendirme tek akışta.
+#YeniEBA #EBAÖğretmen #YapayZekâ</div>
+      <p class="kontrol"><b>Kontrol</b>“Dakikalar içinde” bir pazarlama ifadesi; istenirse “Ders planı artık çok daha kolay” kullanılabilir.</p>
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR05" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR05" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R06" data-no="R06" data-ad="OYNARKEN ÖĞREN">
+  <div class="bas"><span class="no">R06</span><div><h2>OYNARKEN ÖĞREN</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (marimba) + efekt · 21 sn · Hedef: Öğrenci</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r06.jpg"><source src="video/r06.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Oynarken öğrenmeye hazır mısın? 🎮
+Hedef X, Laboratuvar Kâşifi, Yörünge Gezgini, Tarih Dedektifleri ve bu haftanın oyunu Hücre Köy… EBA&#x27;nın eğitsel oyunları seni bekliyor!
+👉 eba.gov.tr/eba-karsilama-oyun-ve-uygulama
+#YeniEBA #OynarkenÖğren #EBA</div>
+      <p class="kontrol"><b>Kontrol</b>Oyunların ders etiketleri ve açıklamaları kapak görsellerinden çıkarıldı, oynanarak doğrulanmadı. Menüdeki “Oyun ve Uygulamalar” bağlantısı doğrudan adresle 404 veriyor; paylaşımda yukarıdaki adres kullanılmalı.</p>
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR06" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR06" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R07a" data-no="R07a" data-ad="TARİH SAHNEDE CAN BULUYOR">
+  <div class="bas"><span class="no">R07a</span><div><h2>TARİH SAHNEDE CAN BULUYOR</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (sinematik) + efekt · 15 sn · Hedef: Herkes</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r07a.jpg"><source src="video/r07a.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Tarih sahnede can buluyor! 🎭
+Şüheda 1915 ve Cumhuriyete Doğru tiyatro oyunları EBA Kütüphane&#x27;de. Sınıfınızla ya da ailenizle birlikte izleyin.
+#YeniEBA #EBAKütüphane #Şüheda1915 #CumhuriyeteDoğru</div>
+      
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR07a" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR07a" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R07b" data-no="R07b" data-ad="BİLİM MERKEZLERİ CEBİNDE">
+  <div class="bas"><span class="no">R07b</span><div><h2>BİLİM MERKEZLERİ CEBİNDE</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (synth arp) + efekt · 15 sn · Hedef: Öğrenci, öğretmen</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r07b.jpg"><source src="video/r07b.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Konya&#x27;dan Samsun&#x27;a, Türkiye&#x27;nin bilim merkezleri EBA Kütüphane&#x27;de! 🔭
+13 bilim merkezini videolarla keşfet, sınıfınla birlikte gez.
+#YeniEBA #EBAKütüphane #BilimMerkezleri</div>
+      
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR07b" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR07b" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R07c" data-no="R07c" data-ad="OKULDAN ÇIKMADAN MÜZE GEZ">
+  <div class="bas"><span class="no">R07c</span><div><h2>OKULDAN ÇIKMADAN MÜZE GEZ</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (sinematik) + efekt · 14 sn · Hedef: Herkes</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r07c.jpg"><source src="video/r07c.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Okuldan çıkmadan müze gezmeye ne dersiniz? 🏛️
+Efes&#x27;ten Seddülbahir&#x27;e, Karahantepe&#x27;den Anadolu Medeniyetleri Müzesi&#x27;ne… EBA Kütüphane&#x27;deki sanal müzelerle tarihi yerinde keşfedin.
+#YeniEBA #EBAKütüphane #SanalMüze</div>
+      <p class="kontrol"><b>Kontrol</b>Müze bağlantıları dış sitelere gidiyor.</p>
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR07c" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR07c" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R07d" data-no="R07d" data-ad="OKUMA ZAMANI BAŞLADI">
+  <div class="bas"><span class="no">R07d</span><div><h2>OKUMA ZAMANI BAŞLADI</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (lo-fi) + efekt · 16 sn · Hedef: Öğrenci, veli</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r07d.jpg"><source src="video/r07d.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>Okuma zamanı başladı! 📚
+MEB Yayınları&#x27;nın çocuk kitaplarından Tolstoy, Goethe ve Tagore&#x27;a uzanan dünya klasikleri EBA Kütüphane&#x27;de; sayfa sayfa çevirerek okuyun.
+#YeniEBA #EBAKütüphane #OkumaZamanı</div>
+      
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR07d" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR07d" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+<section class="icerik" id="R07e" data-no="R07e" data-ad="BİLİMİN ÖNCÜLERİ EBA&#x27;DA">
+  <div class="bas"><span class="no">R07e</span><div><h2>BİLİMİN ÖNCÜLERİ EBA&#x27;DA</h2><p class="kunye">Tanıtım Reels&#x27;i · 1080×1920 · 3B kart, özgün müzik (marimba) + efekt · 12 sn · Hedef: Öğrenci, öğretmen</p></div></div>
+  <div class="ikili"><div class="medya"><video controls playsinline preload="none" poster="kapak/r07e.jpg"><source src="video/r07e.mp4" type="video/mp4"></video></div>
+    <div class="bilgi">
+      
+      <div class="ses"><b>Gönderi metni (Instagram)</b>İbn Sina&#x27;dan Hârezmî&#x27;ye, Bîrûnî&#x27;den Cezerî&#x27;ye… 🌟
+Bilim tarihinin ustalarını EBA Kütüphane&#x27;deki videolarla tanıyın.
+#YeniEBA #EBAKütüphane #BilimTarihi</div>
+      
+      <div class="karar">
+        <label class="sec onay"><input type="radio" name="kR07e" value="onay"> Onaylıyorum</label>
+        <label class="sec duz"><input type="radio" name="kR07e" value="duzeltme"> Düzeltme istiyorum</label>
+      </div>
+      <textarea placeholder="Not (isteğe bağlı)"></textarea>
+      <div class="yanitlar"></div>
+    </div>
+  </div>
+</section>
+</main>
+<div class="gonder"><div class="ic">
+  <input id="ad" placeholder="Ad Soyad (gerekli)">
+  <button class="kaydet" id="kaydet" type="button">Kaydet</button>
+  <a class="wa" id="wa" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp ile gönder</a>
+  <button class="kopya" id="kopya" type="button">Kopyala</button>
+  <div class="durum" id="durum"></div>
+</div></div>
+<div class="perde" id="perde" role="dialog" aria-live="assertive"><div class="kutu" id="kutu">
+  <div class="simge" id="kSimge">⏳</div><h3 id="kBaslik">Kaydediliyor…</h3><p id="kMetin">Lütfen bekleyin.</p>
+  <button class="kaydet" id="kTamam" type="button" hidden>Tamam</button>
+</div></div>
+<script>
+window.ONAY_SCRIPT_URL = 'BURAYA_APPS_SCRIPT_URL';
+const ANAHTAR = 'eba-sosyal-medya-onay-2910';
+const bolumler = [...document.querySelectorAll('.icerik')];
+const durum = (t) => { document.getElementById('durum').textContent = t; };
+document.getElementById('icindekiler').innerHTML = bolumler.map(b => '<a href="#' + b.id + '" data-no="' + b.dataset.no + '">' + b.dataset.no + '</a>').join('');
+// Kaydırmalılar: ok düğmeleri + sayaç
+document.querySelectorAll('.medya.kare').forEach(m => {
+  const s = m.querySelector('.serit'), n = s.children.length, ip = m.querySelector('.ipucu');
+  const g = document.createElement('button'), i = document.createElement('button');
+  g.className = 'ok geri'; g.type = 'button'; g.textContent = '‹'; g.setAttribute('aria-label', 'Önceki kare');
+  i.className = 'ok ileri'; i.type = 'button'; i.textContent = '›'; i.setAttribute('aria-label', 'Sonraki kare');
+  m.append(g, i);
+  const sira = () => Math.round(s.scrollLeft / (s.clientWidth + 10));
+  const tazele = () => { const k = sira(); g.disabled = k <= 0; i.disabled = k >= n - 1; ip.textContent = (k + 1) + ' / ' + n + ' · kaydırın ya da oklara basın'; };
+  g.onclick = () => s.scrollBy({left: -(s.clientWidth + 10), behavior: 'smooth'});
+  i.onclick = () => s.scrollBy({left: s.clientWidth + 10, behavior: 'smooth'});
+  s.addEventListener('scroll', () => requestAnimationFrame(tazele)); tazele();
+});
+// Bir video başlayınca diğerleri dursun
+document.querySelectorAll('video').forEach(v => v.addEventListener('play', () => document.querySelectorAll('video').forEach(o => { if (o !== v) o.pause(); })));
+function oku() { try { return JSON.parse(localStorage.getItem(ANAHTAR) || '{}'); } catch (e) { return {}; } }
+function yaz(v) { try { localStorage.setItem(ANAHTAR, JSON.stringify(v)); } catch (e) {} }
+function topla() {
+  const v = {ad: document.getElementById('ad').value.trim()};
+  bolumler.forEach(b => { const no = b.dataset.no; const s = b.querySelector('input:checked'); v['k' + no] = s ? s.value : ''; v['n' + no] = b.querySelector('textarea').value; });
+  return v;
+}
+function metin() {
+  const v = topla();
+  const satir = bolumler.map(b => {
+    const no = b.dataset.no, k = v['k' + no], n = v['n' + no].trim();
+    if (!k && !n) return null;
+    const d = k === 'onay' ? 'ONAY' : k === 'duzeltme' ? 'DÜZELTME' : 'işaretlenmedi';
+    return no + '. ' + b.dataset.ad + ': ' + d + (n ? ' — ' + n : '');
+  }).filter(Boolean);
+  return 'Yeni EBA sosyal medya içerikleri — onay' + (v.ad ? ' (' + v.ad + ')' : '') + '\n' + (satir.length ? satir.join('\n') : '(henüz seçim yok)');
+}
+function isaretle() {
+  const v = topla();
+  bolumler.forEach(b => { const k = v['k' + b.dataset.no]; b.classList.toggle('onay', k === 'onay'); b.classList.toggle('duzeltme', k === 'duzeltme');
+    const a = document.querySelector('nav.icindekiler a[data-no="' + b.dataset.no + '"]'); if (a) { a.classList.toggle('onay', k === 'onay'); a.classList.toggle('duzeltme', k === 'duzeltme'); } });
+}
+function guncelle() {
+  const v = topla(); yaz(v); isaretle();
+  document.getElementById('wa').href = 'https://wa.me/?text=' + encodeURIComponent(metin());
+}
+(function yukle() {
+  const v = oku();
+  if (v.ad) document.getElementById('ad').value = v.ad;
+  bolumler.forEach(b => { const no = b.dataset.no; if (v['k' + no]) { const r = b.querySelector('input[value="' + v['k' + no] + '"]'); if (r) r.checked = true; } if (v['n' + no]) b.querySelector('textarea').value = v['n' + no]; });
+  guncelle();
+})();
+document.addEventListener('input', guncelle);
+document.addEventListener('change', guncelle);
+document.getElementById('kopya').onclick = async () => {
+  const t = metin();
+  try { await navigator.clipboard.writeText(t); durum('Kopyalandı; mesaja yapıştırabilirsiniz.'); }
+  catch (e) { const a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); document.execCommand('copy'); a.remove(); durum('Kopyalandı; mesaja yapıştırabilirsiniz.'); }
+};
+
+/* ── Paylaşılan yanıtlar: Google Apps Script web uygulaması (apps-script/Code.gs) ── */
+const URL = window.ONAY_SCRIPT_URL;
+const hazir = () => URL && !URL.includes('BURAYA');
+const zamanYaz = (t) => { try { return new Date(t).toLocaleString('tr-TR', {day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'}); } catch (e) { return t; } };
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+function ciz(satirlar) {
+  const son = {};
+  satirlar.forEach(s => { son[s.no + '|' + s.ad] = s; });
+  const liste = Object.values(son).sort((a, b) => new Date(b.zaman) - new Date(a.zaman));
+  let onay = 0, duz = 0;
+  bolumler.forEach(b => {
+    const no = b.dataset.no;
+    const y = liste.filter(s => String(s.no) === String(no));
+    const kutu = b.querySelector('.yanitlar');
+    if (!y.length) { kutu.innerHTML = ''; return; }
+    const d = y.some(s => s.karar === 'duzeltme'), o = !d && y.some(s => s.karar === 'onay');
+    if (d) duz++; else if (o) onay++;
+    b.classList.toggle('duzeltme', d); b.classList.toggle('onay', o);
+    const a = document.querySelector('nav.icindekiler a[data-no="' + no + '"]'); if (a) { a.classList.toggle('duzeltme', d); a.classList.toggle('onay', o); }
+    kutu.innerHTML = '<h4>Gelen yanıtlar</h4>' + y.map(s => '<div class="yanit ' + s.karar + '"><span class="kim">' + esc(s.ad) + ' · ' + (s.karar === 'onay' ? 'Onaylıyorum' : s.karar === 'duzeltme' ? 'Düzeltme istiyorum' : '—') + '</span><span class="zaman">' + esc(zamanYaz(s.zaman)) + '</span>' + (s.not ? '<span class="ne">' + esc(s.not) + '</span>' : '') + '</div>').join('');
+  });
+  const bos = bolumler.length - onay - duz;
+  document.getElementById('ozet').innerHTML = '<span>Son durum (en son yanıtlara göre):</span><span class="rozet o">' + onay + ' onay</span><span class="rozet d">' + duz + ' düzeltme</span><span class="rozet b">' + bos + ' yanıtsız</span>';
+}
+async function yanitlariGetir() {
+  if (!hazir()) { document.getElementById('ozet').textContent = 'Ortak yanıt kaydı henüz bağlı değil; seçimleriniz bu cihazda saklanır. Lütfen “WhatsApp ile gönder” ya da “Kopyala” ile iletin.'; return; }
+  try {
+    const r = await fetch(URL + '?t=' + Date.now(), {cache: 'no-store'});
+    const j = await r.json();
+    ciz(j.satirlar || []);
+  } catch (e) { document.getElementById('ozet').textContent = 'Yanıtlar yüklenemedi; sayfayı yenileyin.'; }
+}
+const kutu = (tur, simge, baslik, metin, dugme) => {
+  const k = document.getElementById('kutu'); k.className = 'kutu ' + tur;
+  document.getElementById('kSimge').textContent = simge; document.getElementById('kBaslik').textContent = baslik; document.getElementById('kMetin').textContent = metin;
+  document.getElementById('kTamam').hidden = !dugme; document.getElementById('perde').classList.add('acik');
+};
+document.getElementById('kTamam').onclick = () => document.getElementById('perde').classList.remove('acik');
+async function satirSay() { try { const r = await fetch(URL + '?t=' + Date.now(), {cache: 'no-store'}); const j = await r.json(); return (j.satirlar || []).length; } catch (e) { return -1; } }
+document.getElementById('kaydet').onclick = async () => {
+  const v = topla();
+  if (!v.ad) { kutu('sorun', '✋', 'Adınızı yazın', 'Kaydetmeden önce alttaki kutuya adınızı yazmanız gerekiyor.', true); document.getElementById('ad').focus(); return; }
+  const kayitlar = bolumler.map(b => ({no: b.dataset.no, ad: v.ad, karar: v['k' + b.dataset.no], not: (v['n' + b.dataset.no] || '').trim()})).filter(k => k.karar || k.not);
+  if (!kayitlar.length) { kutu('sorun', '✋', 'Seçim yok', 'En az bir içerik için “Onaylıyorum” ya da “Düzeltme istiyorum” seçin ya da bir not yazın.', true); return; }
+  if (!hazir()) { kutu('sorun', '⚠️', 'Kayıt bağlı değil', 'Lütfen “Kopyala” ya da “WhatsApp ile gönder” ile iletin.', true); return; }
+  const dugme = document.getElementById('kaydet'); dugme.disabled = true; durum('Kaydediliyor…');
+  kutu('bekle', '⏳', 'Kaydediliyor…', 'Yanıtlarınız gönderiliyor, lütfen bekleyin.', false);
+  const onceki = await satirSay();
+  let gonderildi = false;
+  try {
+    await fetch(URL, {method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'text/plain;charset=utf-8'}, body: JSON.stringify({kayitlar})});
+    gonderildi = true;
+  } catch (e) {}
+  let dogrulandi = false;
+  if (gonderildi) {
+    for (let i = 0; i < 12 && !dogrulandi; i++) {
+      await new Promise(r => setTimeout(r, 2000));
+      const simdi = await satirSay();
+      if (onceki >= 0 && simdi >= onceki + kayitlar.length) dogrulandi = true;
+    }
+  }
+  await yanitlariGetir();
+  if (dogrulandi) {
+    kutu('oldu', '✅', 'Kaydedildi', kayitlar.length + ' içerik için yanıtınız kaydedildi ve “Gelen yanıtlar” altında görünüyor. Teşekkürler!', true);
+    durum('Kaydedildi (' + kayitlar.length + ' içerik). Teşekkürler.');
+    dugme.classList.add('oldu'); dugme.textContent = 'Kaydedildi ✓'; setTimeout(() => { dugme.classList.remove('oldu'); dugme.textContent = 'Kaydet'; }, 8000);
+  } else if (gonderildi) {
+    kutu('sorun', '⚠️', 'Gönderildi, doğrulanamadı', 'Yanıtınız gönderildi ama sayfada henüz görünmedi. Sayfayı yenileyip “Gelen yanıtlar” altına bakın; görünmüyorsa “Kopyala” ile WhatsApp’tan iletin.', true);
+    durum('Gönderildi; doğrulanamadı.');
+  } else {
+    kutu('sorun', '❌', 'Kaydedilemedi', 'Bağlantı kurulamadı. Lütfen “Kopyala” ya da “WhatsApp ile gönder” ile iletin.', true);
+    durum('Kaydedilemedi.');
+  }
+  dugme.disabled = false;
+};
+yanitlariGetir();
+</script>
+</body>
+</html>
