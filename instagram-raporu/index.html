@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>EBA Instagram Analizi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+
+/* Layout: koyu lacivert başlık bandı, EBA kırmızısı vurgu, ardından tek sütunlu rapor; bulgular önem şeridiyle, rakipler kaydırılabilir tabloda */
+:root {
+  --bg: #F4F6FA;
+  --surface: #FFFFFF;
+  --ink: #16203F;
+  --muted: #586282;
+  --line: #DCE1EC;
+  --sea: #C8102E;
+  --sea-soft: #FCE8EB;
+  --tile: #C8102E;
+  --band: #14192E;
+  --on-band: #FFFFFF;
+  --on-band-muted: #C3CBEA;
+  --crit: #B4232F; --crit-soft: #FBE9EA;
+  --warn: #8F5B00; --warn-soft: #FBF1DC;
+  --ok: #1F7A4D; --ok-soft: #E3F3EA;
+  --f-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1324; --surface: #161C33; --ink: #E7EAF4; --muted: #9AA3C0; --line: #2A3352;
+    --sea: #FF7A8A; --sea-soft: #3A1A22; --tile: #FF7A8A;
+    --band: #141B3D; --on-band: #F1F3FB; --on-band-muted: #A9B3D8;
+    --crit: #FF8A93; --crit-soft: #3A1A20;
+    --warn: #F2C063; --warn-soft: #382C12;
+    --ok: #6FD3A0; --ok-soft: #14302A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1324; --surface: #161C33; --ink: #E7EAF4; --muted: #9AA3C0; --line: #2A3352;
+  --sea: #FF7A8A; --sea-soft: #3A1A22; --tile: #FF7A8A;
+  --band: #141B3D; --on-band: #F1F3FB; --on-band-muted: #A9B3D8;
+  --crit: #FF8A93; --crit-soft: #3A1A20;
+  --warn: #F2C063; --warn-soft: #382C12;
+  --ok: #6FD3A0; --ok-soft: #14302A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); font-weight: 750; font-stretch: 112%; }
+h3 { font-size: 1.1rem; font-weight: 700; font-stretch: 105%; }
+p { margin: 0; }
+a { color: var(--sea); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; border-radius: 2px; }
+.eyebrow {
+  font-family: var(--f-data);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.num { font-variant-numeric: tabular-nums; }
+
+/* Başlık bandı */
+.band { background: var(--band); color: var(--on-band); }
+.band .wrap { padding-block: 40px 36px; display: grid; gap: 18px; }
+.band .eyebrow { color: var(--on-band-muted); }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand svg { flex: none; }
+.band h1 { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; font-stretch: 125%; letter-spacing: -0.01em; }
+.band .lede { max-width: 62ch; font-size: 1.08rem; color: var(--on-band); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.88rem; color: var(--on-band-muted); }
+.meta b { color: var(--on-band); font-weight: 600; }
+
+main .wrap { display: grid; gap: 56px; padding-block: 40px 64px; }
+section { display: grid; gap: 20px; min-width: 0; }
+.sec-head { display: grid; gap: 6px; }
+.sec-head p { color: var(--muted); max-width: 66ch; }
+
+/* Rakamlar */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.stat { background: var(--surface); padding: 18px 18px 16px; display: grid; gap: 4px; align-content: start; }
+.stat .v { font-family: var(--f-display); font-size: 2rem; font-weight: 750; font-stretch: 110%; line-height: 1.1; }
+.stat .v small { font-size: 0.95rem; font-weight: 600; color: var(--muted); }
+.stat .k { font-size: 0.88rem; color: var(--muted); }
+.stat.alert .v { color: var(--crit); }
+
+/* Zaman çizelgesi */
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 12px; display: grid; gap: 10px; }
+.chart-scroll { overflow-x: auto; }
+.chart svg { display: block; width: 100%; min-width: 560px; height: auto; }
+.caption { font-size: 0.85rem; color: var(--muted); }
+
+/* Özet kutusu */
+.verdict { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.verdict > div { display: grid; gap: 6px; align-content: start; padding-top: 12px; border-top: 3px solid var(--line); min-width: 0; }
+.verdict .good { border-top-color: var(--ok); }
+.verdict .bad { border-top-color: var(--crit); }
+.verdict .mid { border-top-color: var(--warn); }
+.verdict h3 { font-size: 1rem; }
+.verdict p { font-size: 0.95rem; color: var(--muted); }
+
+/* Tablo */
+.table-box { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 820px; font-size: 0.92rem; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font-family: var(--f-data); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: var(--bg); }
+tbody tr:last-child td { border-bottom: 0; }
+tr.us td { background: var(--sea-soft); }
+tr.us td:first-child { box-shadow: inset 3px 0 0 var(--sea); }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.acct { font-weight: 600; }
+.acct small { display: block; font-weight: 400; color: var(--muted); }
+.chip { display: inline-block; font-size: 0.78rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.chip.yes { background: var(--ok-soft); color: var(--ok); }
+.chip.no { background: var(--crit-soft); color: var(--crit); }
+.chip.na { background: var(--bg); color: var(--muted); }
+td .note { display: block; font-size: 0.82rem; color: var(--muted); margin-top: 3px; }
+
+/* Google çubukları */
+.bars { display: grid; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+.bar-row { display: grid; grid-template-columns: 11rem minmax(0, 1fr) 6.5rem; gap: 12px; align-items: center; font-size: 0.92rem; }
+.bar-row .name { min-width: 0; overflow-wrap: anywhere; }
+.bar-row.us .name { font-weight: 700; color: var(--sea); }
+.track { height: 12px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+.fill { height: 100%; background: var(--muted); border-radius: 3px; opacity: 0.55; }
+.bar-row.us .fill { background: var(--sea); opacity: 1; }
+.bar-row .val { font-variant-numeric: tabular-nums; text-align: right; color: var(--muted); }
+.bar-row.us .val { color: var(--ink); font-weight: 600; }
+
+/* Bulgular */
+.findings { display: grid; gap: 14px; }
+.finding { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+.finding .side { display: grid; gap: 8px; align-content: start; }
+.finding .area { font-family: var(--f-data); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.sev { justify-self: start; font-size: 0.75rem; font-weight: 600; padding: 3px 9px; border-radius: 4px; }
+.sev.crit { background: var(--crit-soft); color: var(--crit); }
+.sev.high { background: var(--warn-soft); color: var(--warn); }
+.sev.mid { background: var(--sea-soft); color: var(--sea); }
+.finding .body { display: grid; gap: 8px; min-width: 0; }
+.finding ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; }
+.finding li::marker { color: var(--muted); }
+.vs { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--line); padding-left: 10px; }
+.vs b { color: var(--ink); font-weight: 600; }
+
+.risk { display: grid; gap: 6px; background: var(--crit-soft); border: 1px solid var(--crit); border-radius: 10px; padding: 16px 18px; }
+.risk h3 { color: var(--crit); font-size: 1rem; }
+
+/* Öneri: profil önizlemesi */
+.proposal { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 28px; align-items: start; }
+.phone { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 20px 18px; display: grid; gap: 14px; }
+.phone-top { display: flex; gap: 14px; align-items: center; }
+.avatar { width: 64px; height: 64px; border-radius: 50%; background: #24357F; display: grid; place-items: center; flex: none; box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--tile); }
+.handle { font-weight: 600; font-size: 0.95rem; }
+.counts { display: flex; gap: 14px; font-size: 0.82rem; color: var(--muted); }
+.counts b { color: var(--ink); }
+.bio { font-size: 0.88rem; line-height: 1.5; display: grid; gap: 1px; }
+.bio .cat { color: var(--muted); }
+.bio .lnk { color: var(--sea); font-weight: 500; }
+.hl { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 4px; }
+.hl div { display: grid; justify-items: center; gap: 4px; font-size: 0.72rem; color: var(--muted); flex: none; width: 56px; text-align: center; }
+.hl span { width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--line); background: var(--sea-soft); display: grid; place-items: center; font-family: var(--f-display); font-weight: 700; font-stretch: 115%; color: var(--sea); font-size: 0.8rem; }
+.proposal-notes { display: grid; gap: 14px; }
+.proposal-notes dl { margin: 0; display: grid; gap: 12px; }
+.proposal-notes dt { font-weight: 600; }
+.proposal-notes dd { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+/* Eylem listesi */
+.actions { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: step; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.actions li { counter-increment: step; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) auto; gap: 12px; padding: 16px 18px; border-bottom: 1px solid var(--line); align-items: start; }
+.actions li:last-child { border-bottom: 0; }
+.actions li::before { content: counter(step); font-family: var(--f-display); font-weight: 800; font-stretch: 120%; font-size: 1.4rem; line-height: 1.2; color: var(--tile); }
+.actions .t { font-weight: 600; }
+.actions .d { color: var(--muted); font-size: 0.93rem; }
+.actions .when { font-family: var(--f-data); font-size: 0.72rem; color: var(--muted); white-space: nowrap; padding-top: 4px; }
+
+.content-ideas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.idea { display: grid; gap: 6px; align-content: start; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; min-width: 0; }
+.idea .fmt { font-family: var(--f-data); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--tile); }
+.idea p { font-size: 0.93rem; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 28px 40px; display: grid; gap: 14px; font-size: 0.88rem; color: var(--muted); }
+footer ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 3px; }
+
+@media (max-width: 760px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .verdict, .content-ideas { grid-template-columns: minmax(0, 1fr); }
+  .proposal { grid-template-columns: minmax(0, 1fr); }
+  .finding { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .finding .side { grid-auto-flow: column; justify-content: start; align-items: center; gap: 12px; }
+  .bar-row { grid-template-columns: 7.5rem minmax(0, 1fr) 5.6rem; gap: 8px; font-size: 0.86rem; }
+  .actions li { grid-template-columns: 2rem minmax(0, 1fr); }
+  .actions .when { grid-column: 2; padding-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+
+
+/* Apple tarzı açık tema · EBA kırmızısı vurgu (Pilaki düzeninin üstüne) */
+:root {
+  --bg: #F5F5F7; --surface: #FFFFFF; --ink: #1D1D1F; --muted: #6E6E73; --line: #E6E6EB;
+  --sea: #E30A17; --sea-soft: #FDECEE; --tile: #E30A17;
+  --band: #FFFFFF; --on-band: #1D1D1F; --on-band-muted: #6E6E73;
+  --crit: #D70015; --crit-soft: #FFF0F1; --warn: #B25000; --warn-soft: #FFF4E5; --ok: #1E8E3E; --ok-soft: #EAF6EC;
+  --f-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", system-ui, sans-serif;
+  --f-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
+  --f-data: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
+  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #000000; --surface: #1C1C1E; --ink: #F5F5F7; --muted: #A1A1A6; --line: #2C2C2E;
+  --sea: #FF453A; --sea-soft: #3A1517; --tile: #FF453A; --band: #000000; --on-band: #F5F5F7; --on-band-muted: #A1A1A6;
+  --crit: #FF6961; --crit-soft: #3A1517; --warn: #FFB340; --warn-soft: #3A2A10; --ok: #4CD964; --ok-soft: #12301A;
+  --shadow: none; } }
+:root[data-theme="dark"] { --bg: #000000; --surface: #1C1C1E; --ink: #F5F5F7; --muted: #A1A1A6; --line: #2C2C2E; --sea: #FF453A; --sea-soft: #3A1517; --tile: #FF453A; --band: #000000; --on-band: #F5F5F7; --on-band-muted: #A1A1A6; --crit: #FF6961; --crit-soft: #3A1517; --warn: #FFB340; --warn-soft: #3A2A10; --ok: #4CD964; --ok-soft: #12301A; --shadow: none; }
+body { -webkit-font-smoothing: antialiased; letter-spacing: -0.005em; }
+h1, h2, h3 { font-stretch: normal !important; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; }
+h3 { font-weight: 650; }
+.eyebrow { text-transform: none; letter-spacing: 0; font-size: 0.85rem; font-weight: 600; color: var(--sea); }
+.band { border-bottom: 1px solid var(--line); }
+.band .wrap { padding-block: 64px 48px; gap: 20px; }
+.band .eyebrow { color: var(--sea); }
+.band h1 { font-size: clamp(2.4rem, 7vw, 4rem); font-weight: 800; letter-spacing: -0.035em; }
+.band h1 span { color: var(--sea); }
+.band .lede { font-size: 1.2rem; color: var(--muted); line-height: 1.55; }
+.brand svg { color: var(--sea); }
+.meta b { color: var(--ink); }
+main .wrap { gap: 80px; padding-block: 56px 80px; }
+.stats { gap: 14px; background: transparent; border: 0; border-radius: 0; overflow: visible; }
+.stat { border-radius: 18px; box-shadow: var(--shadow); padding: 22px; }
+.stat .v { font-weight: 700; letter-spacing: -0.03em; font-size: 2.2rem; }
+.stat.alert .v { color: var(--sea); }
+.chart, .bars, .table-box, .finding, .exec, .lane, .idea, .decide li, .actions { border: 0; border-radius: 18px; box-shadow: var(--shadow); }
+.exec { border-left: 0; box-shadow: var(--shadow), inset 4px 0 0 var(--sea); }
+.figure img { border: 0; border-radius: 18px; box-shadow: var(--shadow); }
+.verdict > div { background: var(--surface); border-radius: 18px; box-shadow: var(--shadow); padding: 18px 20px; border-top: 0; position: relative; overflow: hidden; }
+.verdict > div::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--line); }
+.verdict .good::before { background: var(--ok); } .verdict .mid::before { background: var(--warn); } .verdict .bad::before { background: var(--sea); }
+thead th { text-transform: none; letter-spacing: 0; font-size: 0.8rem; font-weight: 600; background: transparent; }
+tr.us td { background: var(--sea-soft); }
+.sev { border-radius: 999px; padding: 3px 11px; }
+.finding .area { text-transform: none; letter-spacing: 0; font-size: 0.85rem; font-weight: 600; }
+.risk { border: 0; border-radius: 18px; box-shadow: inset 4px 0 0 var(--crit); }
+.lane.us { box-shadow: var(--shadow), inset 0 4px 0 var(--sea); }
+.lane .h, .idea .fmt, .actions .when { text-transform: none; letter-spacing: 0; font-size: 0.8rem; font-weight: 600; }
+.actions li::before { font-weight: 700; color: var(--sea); }
+.fill { background: var(--muted); opacity: .35; }
+.bar-row:first-child .fill { background: var(--sea); opacity: 1; }
+a { color: var(--sea); }
+
+/* Bu rapora özgü bloklar */
+.exec { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--sea); border-radius: 10px; padding: 20px 22px; display: grid; gap: 12px; }
+.exec ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 6px; }
+.exec li::marker { color: var(--sea); }
+.figure { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.figure img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); display: block; background: #000; }
+.figure dl { margin: 0; display: grid; gap: 12px; }
+.figure dt { font-weight: 600; }
+.figure dd { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.lanes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.lane { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.lane.us { border-color: var(--sea); box-shadow: inset 0 3px 0 var(--sea); }
+.lane .h { font-family: var(--f-data); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.lane b { font-size: 1rem; }
+.lane p { font-size: 0.9rem; color: var(--muted); }
+.goals td:first-child { font-weight: 600; white-space: nowrap; }
+.goals table { min-width: 680px; }
+.decide { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.decide li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 4px; }
+.decide li b { font-size: 1rem; }
+.decide li span { color: var(--muted); font-size: 0.93rem; }
+.stock { display: flex; flex-wrap: wrap; gap: 8px; }
+.stock a { text-decoration: none; }
+/* son söz: Apple tarzı küçük etiketler */
+.lane .h { text-transform: none; letter-spacing: 0; font-size: 0.8rem; font-weight: 600; color: var(--sea); }
+.lane.us { border: 0; }
+@media (max-width: 760px) {
+  .figure { grid-template-columns: minmax(0, 1fr); }
+  .lanes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true">
+        <circle cx="27" cy="27" r="26" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+        <rect x="15" y="15" width="24" height="24" rx="7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="27" cy="27" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="34" cy="20" r="1.4" fill="currentColor"/>
+      </svg>
+      <div class="eyebrow">YEĞİTEK · Kurum içi değerlendirme · 29 Ekim 2026</div>
+    </div>
+    <h1>EBA'nın <span>Instagram</span> hesabı</h1>
+    <p class="lede">Hesabımız 37,8 bin takipçiye ve eba.gov.tr'den verilen resmî bağlantıya sahip, ancak 31 aydır tek gönderi paylaşmadı. Yeni EBA'nın lansmanı tam bu hesabın yeniden açılması için doğru an. Bu rapor mevcut durumu, kurum içi ve yurt dışı benzer hesaplarla kıyası, potansiyeli ve yeniden başlatma planını özetliyor.</p>
+    <div class="meta">
+      <span><b>@egitimbilisimagi</b></span>
+      <span>EBA (Eğitim Bilişim Ağı)</span>
+      <span>Bağlantı: eba.gov.tr alt bilgisi</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section aria-labelledby="s-ozet">
+      <div class="sec-head">
+        <div class="eyebrow">Yönetici özeti</div>
+        <h2 id="s-ozet">Beş cümlede durum</h2>
+      </div>
+      <div class="exec">
+        <ul>
+          <li><b>Hesap var ama sessiz.</b> Son gönderi 1 Mart 2024. Yeni EBA'nın 28 Ekim 2026 lansmanı bu hesapta hiç görünmüyor.</li>
+          <li><b>Kitle hâlâ duruyor.</b> 37,8 bin takipçi ve 2.806 gönderilik arşiv sıfırdan başlamaktan çok daha iyi bir zemin.</li>
+          <li><b>Düşüş içerikten kaynaklandı.</b> 2021–2023 arasında gönderilerin büyük çoğunluğu TRT EBA haftalık yayın akışı duyurusuydu. Gönderi başına beğeni 2020'de 270 civarındayken 2022'de 20'nin altına indi.</li>
+          <li><b>Marka dağınık.</b> Profilde eski "eba" logosu var; öne çıkan, sabitlenmiş gönderi ve doğrulama rozeti yok. YEĞİTEK hesabının biyografisi de EBA yerine başka birine ait bir hesabı etiketliyor.</li>
+          <li><b>İçerik hazır.</b> Yeni EBA için 11 tanıtım Reels'i ve 7 seri pilotu üretildi; hesap ilk dört haftayı bu stokla açabilir.</li>
+        </ul>
+        <p><b>Önerimiz:</b> Hesabı EBA'nın öğrenci ve veliye konuşan resmî kanalı olarak yeniden açmak. MEB ve YEĞİTEK hesapları ise duyuru ve kurumsal paylaşımda kalsın, EBA içeriklerini ortak gönderiyle büyütsün. Raporun sonunda yönetimin vermesi gereken dört karar listeleniyor.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-durum">
+      <div class="sec-head">
+        <div class="eyebrow">Mevcut durum</div>
+        <h2 id="s-durum">Hesap bugün nerede duruyor</h2>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="v num">37,8 <small>bin</small></span><span class="k">Takipçi</span></div>
+        <div class="stat"><span class="v num">2.806</span><span class="k">Toplam gönderi</span></div>
+        <div class="stat alert"><span class="v num">31 <small>ay</small></span><span class="k">Paylaşımsız dönem (Nisan 2024 – Ekim 2026)</span></div>
+        <div class="stat"><span class="v num">~70</span><span class="k">Son beş gönderide ortalama beğeni (takipçinin yaklaşık %0,2'si); yorum yok</span></div>
+      </div>
+      <div class="chart">
+        <div class="eyebrow">Aylık gönderi sayısı · Ocak 2020 – Ekim 2026</div>
+        <div class="chart-scroll">
+<svg viewBox="0 0 900 260" role="img" aria-label="Aylık gönderi sayısı, Ocak 2020 – Ekim 2026. 2021 ve 2022 başında ayda 25–43 gönderi; 2023 ortasından itibaren neredeyse sıfır; Mart 2024 sonrası hiç gönderi yok.">
+<line x1="34" x2="896" y1="222.0" y2="222.0" stroke="var(--line)" stroke-width="1"/>
+<text x="28" y="226.0" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--f-data)">0</text>
+<line x1="34" x2="896" y1="176.7" y2="176.7" stroke="var(--line)" stroke-width="1"/>
+<text x="28" y="180.7" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--f-data)">10</text>
+<line x1="34" x2="896" y1="131.3" y2="131.3" stroke="var(--line)" stroke-width="1"/>
+<text x="28" y="135.3" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--f-data)">20</text>
+<line x1="34" x2="896" y1="86.0" y2="86.0" stroke="var(--line)" stroke-width="1"/>
+<text x="28" y="90.0" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--f-data)">30</text>
+<line x1="34" x2="896" y1="40.7" y2="40.7" stroke="var(--line)" stroke-width="1"/>
+<text x="28" y="44.7" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--f-data)">40</text>
+<rect x="567.6" y="18" width="324.4" height="204" fill="var(--crit-soft)"/>
+<text x="729.8" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="var(--crit)" font-family="var(--f-body)">31 ay paylaşım yok</text>
+<text x="729.8" y="76" text-anchor="middle" font-size="11" fill="var(--crit)" font-family="var(--f-body)">Nisan 2024 – Ekim 2026</text>
+<rect x="35.0" y="208.4" width="8.5" height="13.6" rx="1.5" fill="var(--sea)"><title>2020-01: 3 gönderi</title></rect>
+<line x1="34.0" x2="34.0" y1="222" y2="228" stroke="var(--muted)"/>
+<text x="37.0" y="242" font-size="11.5" fill="var(--muted)" font-family="var(--f-data)">2020</text>
+<rect x="45.5" y="208.4" width="8.5" height="13.6" rx="1.5" fill="var(--sea)"><title>2020-02: 3 gönderi</title></rect>
+<rect x="55.9" y="181.2" width="8.5" height="40.8" rx="1.5" fill="var(--sea)"><title>2020-03: 9 gönderi</title></rect>
+<rect x="66.4" y="208.4" width="8.5" height="13.6" rx="1.5" fill="var(--sea)"><title>2020-04: 3 gönderi</title></rect>
+<rect x="76.9" y="149.5" width="8.5" height="72.5" rx="1.5" fill="var(--sea)"><title>2020-05: 16 gönderi</title></rect>
+<rect x="87.3" y="149.5" width="8.5" height="72.5" rx="1.5" fill="var(--sea)"><title>2020-06: 16 gönderi</title></rect>
+<rect x="97.8" y="176.7" width="8.5" height="45.3" rx="1.5" fill="var(--sea)"><title>2020-07: 10 gönderi</title></rect>
+<rect x="108.2" y="181.2" width="8.5" height="40.8" rx="1.5" fill="var(--sea)"><title>2020-08: 9 gönderi</title></rect>
+<rect x="129.2" y="108.7" width="8.5" height="113.3" rx="1.5" fill="var(--sea)"><title>2020-10: 25 gönderi</title></rect>
+<rect x="139.6" y="104.1" width="8.5" height="117.9" rx="1.5" fill="var(--sea)"><title>2020-11: 26 gönderi</title></rect>
+<rect x="150.1" y="126.8" width="8.5" height="95.2" rx="1.5" fill="var(--sea)"><title>2020-12: 21 gönderi</title></rect>
+<rect x="160.6" y="72.4" width="8.5" height="149.6" rx="1.5" fill="var(--sea)"><title>2021-01: 33 gönderi</title></rect>
+<line x1="159.6" x2="159.6" y1="222" y2="228" stroke="var(--muted)"/>
+<text x="162.6" y="242" font-size="11.5" fill="var(--muted)" font-family="var(--f-data)">2021</text>
+<rect x="171.0" y="90.5" width="8.5" height="131.5" rx="1.5" fill="var(--sea)"><title>2021-02: 29 gönderi</title></rect>
+<rect x="181.5" y="27.1" width="8.5" height="194.9" rx="1.5" fill="var(--sea)"><title>2021-03: 43 gönderi</title></rect>
+<rect x="192.0" y="90.5" width="8.5" height="131.5" rx="1.5" fill="var(--sea)"><title>2021-04: 29 gönderi</title></rect>
+<rect x="202.4" y="36.1" width="8.5" height="185.9" rx="1.5" fill="var(--sea)"><title>2021-05: 41 gönderi</title></rect>
+<rect x="212.9" y="167.6" width="8.5" height="54.4" rx="1.5" fill="var(--sea)"><title>2021-06: 12 gönderi</title></rect>
+<rect x="223.3" y="135.9" width="8.5" height="86.1" rx="1.5" fill="var(--sea)"><title>2021-07: 19 gönderi</title></rect>
+<rect x="233.8" y="86.0" width="8.5" height="136.0" rx="1.5" fill="var(--sea)"><title>2021-08: 30 gönderi</title></rect>
+<rect x="244.3" y="104.1" width="8.5" height="117.9" rx="1.5" fill="var(--sea)"><title>2021-09: 26 gönderi</title></rect>
+<rect x="254.7" y="54.3" width="8.5" height="167.7" rx="1.5" fill="var(--sea)"><title>2021-10: 37 gönderi</title></rect>
+<rect x="265.2" y="99.6" width="8.5" height="122.4" rx="1.5" fill="var(--sea)"><title>2021-11: 27 gönderi</title></rect>
+<rect x="275.7" y="95.1" width="8.5" height="126.9" rx="1.5" fill="var(--sea)"><title>2021-12: 28 gönderi</title></rect>
+<rect x="286.1" y="95.1" width="8.5" height="126.9" rx="1.5" fill="var(--sea)"><title>2022-01: 28 gönderi</title></rect>
+<line x1="285.1" x2="285.1" y1="222" y2="228" stroke="var(--muted)"/>
+<text x="288.1" y="242" font-size="11.5" fill="var(--muted)" font-family="var(--f-data)">2022</text>
+<rect x="296.6" y="113.2" width="8.5" height="108.8" rx="1.5" fill="var(--sea)"><title>2022-02: 24 gönderi</title></rect>
+<rect x="307.0" y="76.9" width="8.5" height="145.1" rx="1.5" fill="var(--sea)"><title>2022-03: 32 gönderi</title></rect>
+<rect x="317.5" y="86.0" width="8.5" height="136.0" rx="1.5" fill="var(--sea)"><title>2022-04: 30 gönderi</title></rect>
+<rect x="328.0" y="76.9" width="8.5" height="145.1" rx="1.5" fill="var(--sea)"><title>2022-05: 32 gönderi</title></rect>
+<rect x="338.4" y="144.9" width="8.5" height="77.1" rx="1.5" fill="var(--sea)"><title>2022-06: 17 gönderi</title></rect>
+<rect x="348.9" y="144.9" width="8.5" height="77.1" rx="1.5" fill="var(--sea)"><title>2022-07: 17 gönderi</title></rect>
+<rect x="359.4" y="140.4" width="8.5" height="81.6" rx="1.5" fill="var(--sea)"><title>2022-08: 18 gönderi</title></rect>
+<rect x="369.8" y="149.5" width="8.5" height="72.5" rx="1.5" fill="var(--sea)"><title>2022-09: 16 gönderi</title></rect>
+<rect x="380.3" y="126.8" width="8.5" height="95.2" rx="1.5" fill="var(--sea)"><title>2022-10: 21 gönderi</title></rect>
+<rect x="390.8" y="140.4" width="8.5" height="81.6" rx="1.5" fill="var(--sea)"><title>2022-11: 18 gönderi</title></rect>
+<rect x="401.2" y="144.9" width="8.5" height="77.1" rx="1.5" fill="var(--sea)"><title>2022-12: 17 gönderi</title></rect>
+<rect x="411.7" y="185.7" width="8.5" height="36.3" rx="1.5" fill="var(--sea)"><title>2023-01: 8 gönderi</title></rect>
+<line x1="410.7" x2="410.7" y1="222" y2="228" stroke="var(--muted)"/>
+<text x="413.7" y="242" font-size="11.5" fill="var(--muted)" font-family="var(--f-data)">2023</text>
+<rect x="422.1" y="176.7" width="8.5" height="45.3" rx="1.5" fill="var(--sea)"><title>2023-02: 10 gönderi</title></rect>
+<rect x="432.6" y="144.9" width="8.5" height="77.1" rx="1.5" fill="var(--sea)"><title>2023-03: 17 gönderi</title></rect>
+<rect x="443.1" y="185.7" width="8.5" height="36.3" rx="1.5" fill="var(--sea)"><title>2023-04: 8 gönderi</title></rect>
+<rect x="474.5" y="217.5" width="8.5" height="4.5" rx="1.5" fill="var(--sea)"><title>2023-07: 1 gönderi</title></rect>
+<rect x="495.4" y="208.4" width="8.5" height="13.6" rx="1.5" fill="var(--sea)"><title>2023-09: 3 gönderi</title></rect>
+<rect x="505.9" y="217.5" width="8.5" height="4.5" rx="1.5" fill="var(--sea)"><title>2023-10: 1 gönderi</title></rect>
+<rect x="516.3" y="217.5" width="8.5" height="4.5" rx="1.5" fill="var(--sea)"><title>2023-11: 1 gönderi</title></rect>
+<rect x="537.2" y="217.5" width="8.5" height="4.5" rx="1.5" fill="var(--sea)"><title>2024-01: 1 gönderi</title></rect>
+<line x1="536.2" x2="536.2" y1="222" y2="228" stroke="var(--muted)"/>
+<text x="539.2" y="242" font-size="11.5" fill="var(--muted)" font-family="var(--f-data)">2024</text>
+<rect x="558.2" y="217.5" width="8.5" height="4.5" rx="1.5" fill="var(--sea)"><title>2024-03: 1 gönderi</title></rect>
+<line x1="661.8" x2="661.8" y1="222" y2="228" stroke="var(--muted)"/>
+<text x="664.8" y="242" font-size="11.5" fill="var(--muted)" font-family="var(--f-data)">2025</text>
+<line x1="787.4" x2="787.4" y1="222" y2="228" stroke="var(--muted)"/>
+<text x="790.4" y="242" font-size="11.5" fill="var(--muted)" font-family="var(--f-data)">2026</text>
+<line x1="34" x2="896" y1="222" y2="222" stroke="var(--muted)" stroke-width="1"/>
+</svg>
+        </div>
+        <p class="caption">Profilde görülebilen en yeni 816 gönderi (Ocak 2020 – Mart 2024); tarihler gönderi kodlarından çıkarıldı. 2020 öncesindeki yaklaşık 2.000 gönderi bu grafikte yok.</p>
+      </div>
+      <div class="figure">
+        <img src="img/eba-instagram-profil.jpg" alt="@egitimbilisimagi profilinin 29 Ekim 2026'daki görünümü: eski eba logosu, 2.806 gönderi, 37,8 bin takipçi, biyografide yalnızca 'Eğitim Sitesi' ve www.eba.gov.tr; öne çıkan yok." loading="lazy">
+        <dl>
+          <dt>Profil</dt><dd>Biyografide yalnızca "Eğitim Sitesi" ve www.eba.gov.tr yazıyor. Kime hitap ettiği, ne sunduğu ve hangi platformun hesabı olduğu belli değil.</dd>
+          <dt>Görsel kimlik</dt><dd>Profil fotoğrafı eski "eba" logosu. Yeni EBA'nın kırmızı çerçeveli logosu ve arayüzüyle uyuşmuyor.</dd>
+          <dt>Vitrin</dt><dd>Öne çıkan hikâye ve sabitlenmiş gönderi yok. Profile gelen birinin ilk gördüğü şey 2024 başındaki bir materyal duyurusu.</dd>
+          <dt>Güven</dt><dd>Doğrulama rozeti yok. Yüzlerce taklit "EBA" hesabının olduğu bir ortamda resmî hesabı ayırt etmek zor.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-ozetkutu">
+      <div class="sec-head">
+        <div class="eyebrow">Özet değerlendirme</div>
+        <h2 id="s-ozetkutu">Elimizde ne var, ne eksik</h2>
+      </div>
+      <div class="verdict">
+        <div class="good"><h3>Güçlü yanlar</h3><p>eba.gov.tr'den bağlantılı resmî hesap, 37,8 bin takipçi, akılda kalan "EBA" adı ve uzun bir yayın geçmişi. Yeni EBA için hazır 18 içerik (11 Reels + 7 seri pilotu).</p></div>
+        <div class="mid"><h3>Fırsat</h3><p>Yeni EBA lansmanı ve 18 milyon öğrenci, 1,2 milyon öğretmenlik doğal kitle. Instagram Türkiye'de en yaygın platform. MEB (1 milyon) ve YEĞİTEK (58 bin) hesaplarıyla ortak paylaşım imkânı.</p></div>
+        <div class="bad"><h3>Asıl sorun</h3><p>Hesap 31 aydır sessiz. Son yıllardaki içerik öğrenciye konuşmuyordu, yayın akışı duyurusuydu. Profil kimliği eski ve dağınık. Hesabın kimde olduğu ve içgörü verilerine kimin eriştiği belirsiz.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-kiyas">
+      <div class="sec-head">
+        <div class="eyebrow">Kıyas</div>
+        <h2 id="s-kiyas">Benzer hesaplar Instagram'ı nasıl kullanıyor</h2>
+        <p>Kurum içi hesaplar (MEB, YEĞİTEK, TRT EBA), çocuğa konuşan bir yayıncı (TRT Çocuk) ve yurt dışında EBA benzeri platformların sahipleri. Sayılar 29 Ekim 2026'da profillerden alındı; beğeni aralığı son 4–6 gönderiden.</p>
+      </div>
+      <div class="table-box">
+        <table>
+          <thead><tr><th>Hesap</th><th>Takipçi</th><th>Gönderi</th><th>Son paylaşım</th><th>Son gönderilerde beğeni</th><th>Öne çıkan özellik</th></tr></thead>
+          <tbody>
+            <tr class="us"><td class="acct">EBA<small>@egitimbilisimagi</small></td><td class="n">37,8 B</td><td class="n">2.806</td><td class="n">Mar 2024</td><td class="n">45–136</td><td>Eski logo, öne çıkan yok<span class="note">Son içerikler: TEKNOFEST, Bakan konuşması, materyal duyurusu</span></td></tr>
+            <tr><td class="acct">MEB<small>@tcmeb</small></td><td class="n">1 M</td><td class="n">8.444</td><td class="n">Eki 2026</td><td class="n">459–1.156</td><td>Günde birden fazla gönderi, Reels + duyuru<span class="note">Bir gönderide 144 yorum</span></td></tr>
+            <tr><td class="acct">YEĞİTEK<small>@mebyegitek</small></td><td class="n">58 B</td><td class="n">1.791</td><td class="n">Eki 2026</td><td class="n">25–226</td><td>Reels'ler fotoğraftan 2–4 kat fazla beğeni alıyor<span class="note">Biyografide @egitimbilisim etiketli (aşağıya bakın)</span></td></tr>
+            <tr><td class="acct">TRT EBA<small>@trtebatv</small></td><td class="n">29 B</td><td class="n">1.549</td><td class="n">Eki 2026</td><td class="n">11–69</td><td>MEB ve Haberimiz Olsun ile ortak gönderiler</td></tr>
+            <tr><td class="acct">TRT Çocuk<small>@trtcocuk</small></td><td class="n">256 B</td><td class="n">7.143</td><td class="n">Eki 2026</td><td class="n">39–197</td><td>Neredeyse tamamı Reels; karakter odaklı</td></tr>
+            <tr><td class="acct">Endonezya Eğitim Bakanlığı<small>@kemendikdasmen</small></td><td class="n">3 M</td><td class="n">10.053</td><td class="n">Eki 2026</td><td class="n">—</td><td>Her gönderi aynı hitapla açılıyor (#SobatBelajar); "Klarifikasi" doğrulama öne çıkanı</td></tr>
+            <tr><td class="acct">Singapur Eğitim Bakanlığı<small>@moesingapore</small></td><td class="n">131 B</td><td class="n">2.791</td><td class="n">Eki 2026</td><td class="n">—</td><td>Veli sorularına SSS kaydırmalıları; #ourschoolstories</td></tr>
+            <tr><td class="acct">Khan Academy<small>@khanacademy</small></td><td class="n">317 B</td><td class="n">1.429</td><td class="n">Eki 2026</td><td class="n">—</td><td>Konuya göre ayrılmış öne çıkanlar; ürün yeniliği + ders etkinliği</td></tr>
+            <tr><td class="acct">Oak National Academy<small>@oaknational</small></td><td class="n">10,8 B</td><td class="n">780</td><td class="n">Eki 2026</td><td class="n">—</td><td>Gönderilerin çoğu Reels; öğretmen mizahı</td></tr>
+            <tr><td class="acct">Duolingo<small>@duolingo</small></td><td class="n">5,3 M</td><td class="n">1.181</td><td class="n">Eki 2026</td><td class="n">—</td><td>Maskot (baykuş) her içeriğin yüzü</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sec-head"><div class="eyebrow">Gönderi başına beğeni · EBA hesabı, yıllara göre</div></div>
+      <div class="bars">
+<div class="bar-row"><span class="name">May 2020</span><span class="track"><span class="fill" style="width:100.0%"></span></span><span class="val num">274</span></div>
+<div class="bar-row"><span class="name">Kas 2020</span><span class="track"><span class="fill" style="width:52.2%"></span></span><span class="val num">143</span></div>
+<div class="bar-row"><span class="name">Mar 2021</span><span class="track"><span class="fill" style="width:26.6%"></span></span><span class="val num">73</span></div>
+<div class="bar-row"><span class="name">Eki 2021</span><span class="track"><span class="fill" style="width:9.5%"></span></span><span class="val num">26</span></div>
+<div class="bar-row"><span class="name">Mar 2022</span><span class="track"><span class="fill" style="width:6.9%"></span></span><span class="val num">19</span></div>
+<div class="bar-row"><span class="name">Eki 2022</span><span class="track"><span class="fill" style="width:9.5%"></span></span><span class="val num">26</span></div>
+<div class="bar-row"><span class="name">Mar 2023</span><span class="track"><span class="fill" style="width:6.6%"></span></span><span class="val num">18</span></div>
+<div class="bar-row"><span class="name">Eyl 2023 – Mar 2024</span><span class="track"><span class="fill" style="width:25.9%"></span></span><span class="val num">71</span></div>
+      </div>
+      <p class="caption">Her dönemden 4–5 gönderinin ortalaması. Düşüş, içeriğin haftalık yayın akışı duyurularına dönmesiyle aynı döneme denk geliyor; en son dönemdeki kısmi artış Bakan ve Cumhurbaşkanı konuşmaları gibi büyük duyurulardan.</p>
+    </section>
+
+    <section aria-labelledby="s-bulgu">
+      <div class="sec-head">
+        <div class="eyebrow">Bulgular</div>
+        <h2 id="s-bulgu">Eksikler, önem sırasıyla</h2>
+      </div>
+      <div class="findings">
+
+        <article class="finding">
+          <div class="side"><span class="area">Süreklilik</span><span class="sev crit">Kritik</span></div>
+          <div class="body">
+            <h3>Hesap Yeni EBA'dan habersiz görünüyor</h3>
+            <ul>
+              <li><b>Son gönderi 1 Mart 2024.</b> 2023 başında ayda 8–17 olan gönderi sayısı yıl ortasında sıfıra yaklaştı ve hesap tamamen durdu.</li>
+              <li><b>Lansman bu kanalda yok.</b> eba.gov.tr'deki "Instagram" bağlantısına tıklayan öğrenci 2024'ten kalma bir vitrinle karşılaşıyor.</li>
+              <li><b>Takipçi kaybı ölçülemiyor</b> ama sessiz geçen 31 ay, algoritmanın hesabı görünmez kılması için yeterli. Yeniden açılışta erişim ilk haftalarda düşük olacak.</li>
+            </ul>
+            <p class="vs"><b>Kıyasta:</b> MEB, YEĞİTEK, TRT EBA ve TRT Çocuk bu hafta birden çok gönderi paylaştı.</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="side"><span class="area">Kimlik</span><span class="sev crit">Kritik</span></div>
+          <div class="body">
+            <h3>Profil Yeni EBA'yı temsil etmiyor</h3>
+            <ul>
+              <li><b>Eski logo:</b> profil fotoğrafı yeni EBA kimliğiyle uyuşmuyor.</li>
+              <li><b>Biyografi boş:</b> "Eğitim Sitesi" dışında kime, ne için hizmet verdiği yazmıyor; resmî hesap olduğu belirtilmiyor.</li>
+              <li><b>Öne çıkan ve sabitlenmiş gönderi yok:</b> öğrenci, veli ve öğretmen için kalıcı bir yönlendirme alanı yok.</li>
+              <li><b>Doğrulama rozeti yok.</b></li>
+            </ul>
+            <p class="vs"><b>Kıyasta:</b> MEB biyografisi iki dilde "resmî hesap" diyor; TRT EBA "Resmi Instagram hesabıdır" yazıyor. Endonezya ve Khan Academy öne çıkanları kitleye göre ayırıyor.</p>
+          </div>
+        </article>
+
+        <div class="risk" role="note">
+          <h3>Yanlış hesap etiketi: @mebyegitek biyografisi</h3>
+          <p>YEĞİTEK'in Instagram biyografisinde EBA için <b>@egitimbilisim</b> etiketleniyor. Bu hesap EBA'ya ait değil: 339 takipçili, hiç gönderisi olmayan ve biyografisinde başka bir kişiyi "kurucu" olarak gösteren bir hesap. YEĞİTEK'ten EBA'ya gelmek isteyen kullanıcı yanlış yere gidiyor ve bu hesap ileride kurumu temsil ediyormuş gibi kullanılabilir. Biyografideki etiketin <b>@egitimbilisimagi</b> olarak düzeltilmesi ilk hafta yapılmalı.</p>
+        </div>
+
+        <article class="finding">
+          <div class="side"><span class="area">İçerik</span><span class="sev high">Yüksek</span></div>
+          <div class="body">
+            <h3>İçerik öğrenciye değil yayın akışına konuşuyordu</h3>
+            <ul>
+              <li><b>2021–2023 gönderilerinin büyük kısmı tek şablon:</b> "TRT EBA kanallarında bu haftanın dersleri", ilkokul/ortaokul/lise program linkleri. Aynı içerik haftada üç dört kez tekrarlanıyordu.</li>
+              <li><b>Etkileşim buna göre düştü:</b> gönderi başına beğeni Mayıs 2020'de ortalama 274 iken Mart 2022'de 19'a indi.</li>
+              <li><b>Reels payı düşük:</b> incelenen 816 gönderinin yaklaşık 100'ü (%12) Reels.</li>
+              <li><b>Ses yok:</b> sabit bir hitap, maskot ya da seri formatı kullanılmamış.</li>
+            </ul>
+            <p class="vs"><b>Kıyasta:</b> YEĞİTEK'te bu hafta Reels'ler 226 beğeni alırken fotoğraf gönderileri 25–95 beğenide kaldı. TRT Çocuk'un içeriğinin neredeyse tamamı Reels.</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="side"><span class="area">Topluluk</span><span class="sev high">Yüksek</span></div>
+          <div class="body">
+            <h3>Takipçiyle konuşma yok</h3>
+            <ul>
+              <li>Son gönderilerin hiçbiri yorum almamış; geçmişte de yorum sayısı genellikle 0–3.</li>
+              <li>Soru soran, anket yapan, yorumdan içerik üreten bir düzen yok.</li>
+            </ul>
+            <p class="vs"><b>Kıyasta:</b> MEB'in bir gönderisi 144 yorum aldı. Endonezya bakanlığı her gönderiyi aynı hitapla açarak takipçisine bir topluluk adı vermiş.</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="side"><span class="area">Kanal yapısı</span><span class="sev mid">Orta</span></div>
+          <div class="body">
+            <h3>Kurum hesapları ayrı ayrı konuşuyor</h3>
+            <ul>
+              <li>MEB, YEĞİTEK, TRT EBA ve Haberimiz Olsun düzenli paylaşıyor; EBA hesabı bu ağın dışında kalmış.</li>
+              <li>TRT EBA'nın akışında MEB ve Haberimiz Olsun ile <b>ortak gönderiler</b> görülüyor. Aynı yöntem EBA için hazır bir büyüme aracı.</li>
+              <li>Hangi duyurunun hangi hesaptan çıkacağına dair yazılı bir ayrım yok.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="side"><span class="area">Yönetim</span><span class="sev mid">Orta</span></div>
+          <div class="body">
+            <h3>Hesabın sahibi ve verisi belirsiz</h3>
+            <ul>
+              <li>Hesaba kimin eriştiği, iki adımlı doğrulamanın açık olup olmadığı ve içgörü (insights) verilerinin kimde olduğu bu raporun dışından görülemiyor.</li>
+              <li>Bu rapor yalnızca herkese açık verilere dayanıyor. Erişim sağlandığında takipçi değişimi, erişim ve kitle yaş dağılımı eklenmeli.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-potansiyel">
+      <div class="sec-head">
+        <div class="eyebrow">Potansiyel</div>
+        <h2 id="s-potansiyel">Hesabın ulaşabileceği kitle</h2>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="v num">17,96 <small>milyon</small></span><span class="k">Öğrenci (2024–2025 örgün eğitim, MEB)</span></div>
+        <div class="stat"><span class="v num">1,19 <small>milyon</small></span><span class="k">Öğretmen (MEB)</span></div>
+        <div class="stat"><span class="v num">58,4 <small>milyon</small></span><span class="k">Türkiye'de Instagram kullanıcısı (Digital 2025)</span></div>
+        <div class="stat"><span class="v num">18</span><span class="k">Yayına hazır içerik: 11 Reels + 7 seri pilotu</span></div>
+      </div>
+      <div class="verdict">
+        <div class="good"><h3>Ortaokul ve lise</h3><p>Instagram ve Reels'te en çok vakit geçiren grup. Yapay Zekâ, oyun ve "60 saniyede konu" içerikleri doğrudan bu gruba yönelik.</p></div>
+        <div class="good"><h3>Veli</h3><p>İlkokul çocuğu olan veli Instagram'da; veli ekranı, güvenli kullanım ve kütüphane içerikleri ona konuşur.</p></div>
+        <div class="good"><h3>Öğretmen</h3><p>Ders planı ve performans haritası gibi öğretmen araçları YEĞİTEK hesabıyla ortak gönderide en geniş erişimi bulur.</p></div>
+      </div>
+      <p class="caption">Hazır içeriklerin tamamı onay sayfasında izlenebilir: <a href="../">Yeni EBA sosyal medya içerikleri onay sayfası</a>.</p>
+    </section>
+
+    <section aria-labelledby="s-strateji">
+      <div class="sec-head">
+        <div class="eyebrow">Strateji</div>
+        <h2 id="s-strateji">Konumlandırma: EBA'nın öğrenciyle konuşan hesabı</h2>
+        <p>Önerimiz, kurum hesaplarının rollerini ayırmak ve EBA hesabını kullanıcıya dönük vitrin olarak yeniden açmak.</p>
+      </div>
+      <div class="lanes">
+        <div class="lane"><span class="h">MEB · @tcmeb</span><b>Bakanlık duyurusu</b><p>Resmî açıklama, Bakan programı, büyük kampanyalar. EBA içeriklerini ortak gönderiyle büyütür.</p></div>
+        <div class="lane"><span class="h">YEĞİTEK · @mebyegitek</span><b>Kurumsal ve öğretmen</b><p>Projeler, eğitimler, öğretmen araçları. EBA'nın öğretmen içerikleri burada ortak gönderi olur.</p></div>
+        <div class="lane us"><span class="h">EBA · @egitimbilisimagi</span><b>Öğrenci ve veli</b><p>Platformun kendisi: nasıl kullanılır, ne var, neler yeni. Hitap "Hey Kâşif!", kapanış #BirAdımÖnde, maskot EBA baykuşu.</p></div>
+        <div class="lane"><span class="h">TRT EBA · @trtebatv</span><b>Yayın akışı</b><p>Ders yayın programları burada kalır; EBA hesabı yalnızca öne çıkan yayınları paylaşır.</p></div>
+      </div>
+      <div class="table-box">
+        <table>
+          <thead><tr><th>Seri</th><th>Sütun ve oran</th><th>Biçim</th><th>Sıklık</th><th>Hazır pilot</th></tr></thead>
+          <tbody>
+            <tr><td class="acct">EBA'da Bu Da Var</td><td>Keşfet · %30</td><td>Reels 15–20 sn</td><td class="n">Haftada 2</td><td>Tiyatro (Şüheda 1915, Cumhuriyete Doğru)</td></tr>
+            <tr><td class="acct">Yapay Zekâ'ya Sordum</td><td>Yapay Zekâ · %20</td><td>Reels 20 sn</td><td class="n">Haftada 1</td><td>"Ay neden her gece farklı görünüyor?"</td></tr>
+            <tr><td class="acct">Haftanın Oyunu</td><td>Oyna, kazan · %15</td><td>Reels 15 sn</td><td class="n">Haftada 1</td><td>Hücre Köy</td></tr>
+            <tr><td class="acct">60 Saniyede Konu</td><td>Ders ipucu · %15</td><td>Reels / kaydırmalı</td><td class="n">Haftada 1</td><td>Bileşke Kuvvet (6. sınıf fen)</td></tr>
+            <tr><td class="acct">Kaldığın Yerden</td><td>Keşfet</td><td>Kaydırmalı</td><td class="n">Ayda 2</td><td>Ana sayfa ve "Kaldığın Yerden Devam Et"</td></tr>
+            <tr><td class="acct">Sen de Anlat</td><td>Topluluk · %10</td><td>Kaydırmalı / anket</td><td class="n">Ayda 2</td><td>"En çok neyi sevdin?" (A/B/C/D)</td></tr>
+            <tr><td class="acct">Güvenli EBA</td><td>Duyuru, doğrulama · %10</td><td>Kaydırmalı</td><td class="n">Gerektikçe</td><td>4 kural: adres, şifre, kişisel bilgi, resmî hesap</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="content-ideas">
+        <div class="idea"><span class="fmt">Profil</span><h3>Yeni vitrin</h3><p>Yeni EBA logosu, "EBA'nın resmî Instagram hesabı · öğrenci, veli ve öğretmen için" biyografisi; öne çıkanlar: Öğrenci · Yapay Zekâ · Oyunlar · Kütüphane · Veli · Öğretmen · Resmî Duyurular.</p></div>
+        <div class="idea"><span class="fmt">Ses</span><h3>Tek hitap, tek etiket</h3><p>Her gönderi "Hey Kâşif!" ile açılır, #BirAdımÖnde ile kapanır. Baykuş maskot "Kâşiflerin rehberi" olur. Dil akran gibi ama kurum kimliğinde.</p></div>
+        <div class="idea"><span class="fmt">Onay</span><h3>Şablonlu seriler</h3><p>Seriler bir kez toplu onaylanır, her hafta yalnızca içerik değişir. Bu, kurum içi onay süresini kısaltır (Endonezya örneği).</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="s-hedef">
+      <div class="sec-head">
+        <div class="eyebrow">Hedefler</div>
+        <h2 id="s-hedef">Ölçülebilir hedef önerisi</h2>
+        <p>Başlangıç değerleri dışarıdan görülen verilerden. İlk ay içgörü verisi alındığında hedefler gerçek erişim ve kitle dağılımına göre güncellenmeli.</p>
+      </div>
+      <div class="table-box goals">
+        <table>
+          <thead><tr><th>Gösterge</th><th>Bugün</th><th>1. ay</th><th>3. ay</th><th>6. ay</th><th>12. ay</th></tr></thead>
+          <tbody>
+            <tr><td>Haftalık gönderi</td><td class="n">0</td><td class="n">3</td><td class="n">5</td><td class="n">5</td><td class="n">5 + günlük hikâye</td></tr>
+            <tr><td>Reels payı</td><td class="n">%12</td><td class="n">%60</td><td class="n">%60</td><td class="n">%60</td><td class="n">%60</td></tr>
+            <tr><td>Gönderi başına ortalama beğeni</td><td class="n">~70</td><td class="n">150</td><td class="n">300</td><td class="n">500</td><td class="n">1.000</td></tr>
+            <tr><td>Takipçi</td><td class="n">37,8 B</td><td class="n">40 B</td><td class="n">50 B</td><td class="n">65 B</td><td class="n">100 B</td></tr>
+            <tr><td>Yorumlardan gelen soru (Yapay Zekâ'ya Sordum)</td><td class="n">0</td><td class="n">—</td><td class="n">Ayda 20</td><td class="n">Ayda 50</td><td class="n">Ayda 100</td></tr>
+            <tr><td>eba.gov.tr'ye bio tıklaması</td><td class="n">Bilinmiyor</td><td class="n">Ölçüm başlar</td><td class="n">Ayda 2 bin</td><td class="n">Ayda 5 bin</td><td class="n">Ayda 10 bin</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">Beğeni yerine izlenme, kaydetme ve paylaşım da izlenmeli; Reels'te asıl gösterge izlenme ve kaydetmedir. Rakamlar YEĞİTEK (58 bin takipçi, Reels'te ~226 beğeni) ve MEB (1 milyon, 459–1.156) hesaplarının bugünkü düzeyine göre belirlendi.</p>
+    </section>
+
+    <section aria-labelledby="s-plan">
+      <div class="sec-head">
+        <div class="eyebrow">Yol haritası</div>
+        <h2 id="s-plan">İlk 90 gün</h2>
+      </div>
+      <ol class="actions">
+        <li><div><div class="t">Hesap sahipliğini netleştirmek</div><div class="d">Erişimin kimde olduğu, iki adımlı doğrulama, yedek yönetici ve içgörü erişimi. Hesap bir kişiye değil kuruma bağlı olmalı.</div></div><span class="when">1. hafta</span></li>
+        <li><div><div class="t">YEĞİTEK biyografisindeki etiketi düzeltmek</div><div class="d">@egitimbilisim → @egitimbilisimagi. eba.gov.tr alt bilgisindeki bağlantı zaten doğru.</div></div><span class="when">1. hafta</span></li>
+        <li><div><div class="t">Profili yenilemek</div><div class="d">Yeni logo, biyografi, öne çıkan kapakları, bağlantı sayfası. Doğrulama rozeti için Meta'ya başvuru.</div></div><span class="when">1–2. hafta</span></li>
+        <li><div><div class="t">Eski içerik kararı</div><div class="d">2.806 gönderiden yayın akışı duyurularını arşive almak (silmeden); vitrinde Yeni EBA içerikleri kalsın.</div></div><span class="when">2. hafta</span></li>
+        <li><div><div class="t">Yeniden açılış kampanyası</div><div class="d">"Yeni EBA geldi" ile başlayan 4 haftalık lansman; hazır 11 Reels ve 7 pilot sırayla, MEB ve YEĞİTEK ile ortak gönderi.</div></div><span class="when">3–6. hafta</span></li>
+        <li><div><div class="t">Düzenli yayın ritmi</div><div class="d">7 serinin haftalık takvimi; seriler toplu onaylı, haftalık içerik değişir. Yorumlardan gelen sorularla "Yapay Zekâ'ya Sordum" bölümleri.</div></div><span class="when">7–12. hafta</span></li>
+        <li><div><div class="t">Ölçüm ve aylık rapor</div><div class="d">Her ay tek sayfa: ne yayımlandı, ne işe yaradı, sonraki ay neye odaklanılacak.</div></div><span class="when">Her ay</span></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="s-karar">
+      <div class="sec-head">
+        <div class="eyebrow">Yönetimden beklenen</div>
+        <h2 id="s-karar">Karar verilmesi gereken dört konu</h2>
+      </div>
+      <ol class="decide">
+        <li><b>1. Kanal kararı</b><span>EBA hesabı öğrenci ve veli kanalı olarak yeniden açılsın mı? (Önceki taslakta yayının yalnızca MEB ve YEĞİTEK'ten yapılması düşünülmüştü; bu karar EBA hesabının varlığı bilinmeden verildi.)</span></li>
+        <li><b>2. Sorumluluk</b><span>Hesabı kim yönetecek, içerikleri kim üretecek, yorumlara kim yanıt verecek?</span></li>
+        <li><b>3. Onay süreci</b><span>Serilerin toplu onayı ve haftalık içeriklerin kısa onay yolu (ör. tek kişi, 24 saat).</span></li>
+        <li><b>4. Ortak paylaşım ilkesi</b><span>MEB ve YEĞİTEK hesaplarının EBA içeriklerini hangi sıklıkla ortak gönderi olarak paylaşacağı.</span></li>
+      </ol>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Yöntem.</b> Veriler 29 Ekim 2026'da Instagram'daki herkese açık profillerden alındı; hesapların içgörü verilerine erişim yoktur. @egitimbilisimagi için profilde görülebilen en yeni 816 gönderinin tarihi gönderi kodlarından çözüldü; beğeni değerleri her dönemden 4–5 gönderilik örneklemdir. Yurt dışı hesapların sayıları aynı gün yapılan önceki incelemeden alındı.</p>
+    <ul>
+      <li>EBA resmî hesap bağlantıları: <a href="https://eba.gov.tr">eba.gov.tr</a> alt bilgisi (Instagram @egitimbilisimagi, X @egitimbilisim, Facebook egitimbilisimagi, YouTube @EbaGovTr-Eba)</li>
+      <li>Öğrenci ve öğretmen sayıları: <a href="https://www.meb.gov.tr/2024-2025-orgun-egitim-istatistikleri-aciklandi/haber/38473/tr">MEB, 2024–2025 Örgün Eğitim İstatistikleri (30.09.2025)</a></li>
+      <li>Instagram kullanıcı sayısı: We Are Social &amp; Meltwater, Digital 2025 Türkiye (<a href="https://www.teknoblog.com/instagram-turkiye-kullanici-sayisi/">aktaran: Teknoblog</a>)</li>
+      <li>İlgili çalışmalar: Dünyada EBA Benzeri Platformlar (v2), Benzer Platformların Sosyal Medyası (v1), Öğrenci Odaklı İçerik Stratejisi (v1)</li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
