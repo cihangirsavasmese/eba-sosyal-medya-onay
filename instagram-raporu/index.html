@@ -291,11 +291,17 @@ a { color: var(--sea); }
 .decide li span { color: var(--muted); font-size: 0.93rem; }
 .stock { display: flex; flex-wrap: wrap; gap: 8px; }
 .stock a { text-decoration: none; }
+/* kanıt görselleri */
+.evidence { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; margin: 6px 0; }
+.evidence figure { margin: 0; display: grid; gap: 6px; align-content: start; }
+.evidence img { width: 100%; height: auto; border-radius: 12px; display: block; background: #0c0f14; }
+.evidence figcaption { font-size: 0.85rem; color: var(--muted); }
+.risk { gap: 10px; background: var(--surface); }
 /* son söz: Apple tarzı küçük etiketler */
 .lane .h { text-transform: none; letter-spacing: 0; font-size: 0.8rem; font-weight: 600; color: var(--sea); }
 .lane.us { border: 0; }
 @media (max-width: 760px) {
-  .figure { grid-template-columns: minmax(0, 1fr); }
+  .figure, .evidence { grid-template-columns: minmax(0, 1fr); }
   .lanes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 </style>
@@ -529,8 +535,15 @@ a { color: var(--sea); }
         </article>
 
         <div class="risk" role="note">
-          <h3>Yanlış hesap etiketi: @mebyegitek biyografisi</h3>
-          <p>YEĞİTEK'in Instagram biyografisinde EBA için <b>@egitimbilisim</b> etiketleniyor. Bu hesap EBA'ya ait değil: 339 takipçili, hiç gönderisi olmayan ve biyografisinde başka bir kişiyi "kurucu" olarak gösteren bir hesap. Muhtemel sebep: EBA'nın X'teki resmî kullanıcı adı @egitimbilisim; Instagram'da ise aynı ad başkasına ait. YEĞİTEK'ten EBA'ya gelmek isteyen kullanıcı yanlış yere gidiyor ve bu hesap ileride kurumu temsil ediyormuş gibi kullanılabilir. Biyografideki etiketin <b>@egitimbilisimagi</b> olarak düzeltilmesi ilk hafta yapılmalı.</p>
+          <h3>Yanlış hesap etiketi: YEĞİTEK biyografisi EBA yerine başka bir hesaba gönderiyor</h3>
+          <p>YEĞİTEK'in Instagram biyografisinde EBA için <b>@egitimbilisim</b> yazıyor. Instagram bu adı tıklanabilir bağlantıya çeviriyor. YEĞİTEK profiline gelip EBA'ya geçmek isteyen kullanıcı, EBA'nın hesabına (<b>@egitimbilisimagi</b>) değil, EBA ile ilgisi olmayan bir hesaba gidiyor.</p>
+          <div class="evidence">
+            <figure><img src="img/yegitek-biyografi.jpg" alt="@mebyegitek profili: biyografide 'Millî Eğitim Bakanlığı Yenilik ve Eğitim Teknolojileri Genel Müdürlüğünün Resmî Instagram Hesabıdır.' ve altında kırmızıyla işaretli @egitimbilisim etiketi." loading="lazy"><figcaption><b>1.</b> @mebyegitek biyografisi: kırmızı çerçevedeki etiket tıklanabilir.</figcaption></figure>
+            <figure><img src="img/egitimbilisim-hesabi.jpg" alt="@egitimbilisim profili: 'Eğitim Bilişim' adlı, 0 gönderili, 338 takipçili hesap; biyografide 'Kurucu: @sorogretmenim'; sayfada 'Henüz Hiç Gönderi Yok'." loading="lazy"><figcaption><b>2.</b> Tıklayınca açılan @egitimbilisim: 0 gönderi, 338 takipçi, "Kurucu: @sorogretmenim". EBA'ya ait değil.</figcaption></figure>
+          </div>
+          <p><b>Muhtemel sebep:</b> EBA'nın X'teki resmî kullanıcı adı @egitimbilisim; Instagram'da ise aynı ad başkasına ait. Biyografiye X'teki ad yazılmış olmalı.</p>
+          <p><b>Neden önemli:</b> Kullanıcı yanlış yere gidiyor ve resmî bir kurum hesabından bağlantı verilmesi, bu hesaba EBA'yı temsil ediyormuş gibi bir güven kazandırıyor.</p>
+          <p><b>Çözüm:</b> YEĞİTEK biyografisindeki etiketin <b>@egitimbilisimagi</b> olarak düzeltilmesi (ilk hafta, birkaç dakikalık iş).</p>
         </div>
 
         <article class="finding">
