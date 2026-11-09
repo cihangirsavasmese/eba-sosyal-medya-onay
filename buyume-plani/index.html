@@ -156,7 +156,7 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .tag { font-size: 0.8rem; color: var(--muted); padding: 4px 11px; border-radius: 999px; background: var(--bg-alt); }
 .board-scroll { overflow-x: auto; padding-bottom: 6px; }
-.board { display: grid; grid-template-columns: repeat(5, minmax(96px, 150px)); gap: 16px; justify-content: center; }
+.board { display: grid; grid-template-columns: repeat(6, minmax(96px, 136px)); gap: 14px; justify-content: center; }
 .frame { margin: 0; display: grid; gap: 8px; min-width: 0; }
 .frame svg, .frame img { display: block; width: 100%; height: auto; border-radius: 14px; background: var(--bg-alt); color: var(--ink); }
 .frame img { aspect-ratio: 9 / 16; object-fit: cover; }
@@ -402,59 +402,17 @@ footer .wrap { padding-block: 28px 44px; font-size: 0.8rem; color: var(--muted);
       <div class="brief">
         <div class="brief-head">
           <h3>Yapay Zekâ'ya Sordum: "Ay neden her gece farklı görünüyor?"</h3>
-          <div class="tags"><span class="tag">Reels</span><span class="tag">20 sn</span><span class="tag">Dikey 9:16</span><span class="tag">Haftada 1</span><span class="tag">Pilot hazır</span></div>
+          <div class="tags"><span class="tag">Reels</span><span class="tag">20 sn</span><span class="tag">Dikey 9:16</span><span class="tag">Haftada 1</span><span class="tag">Pilot hazır · kareler videodan</span></div>
         </div>
 
         <div class="board-scroll">
-          <div class="board" role="list" aria-label="Storyboard: beş kare">
-            <figure class="frame" role="listitem">
-              <img src="img/pilot-yapay-zeka-kapak.jpg" alt="Kapak karesi: soru ekranda." loading="lazy">
-              <figcaption><span class="tc">0–3 sn</span>Soru</figcaption>
-            </figure>
-            <figure class="frame" role="listitem">
-              <svg viewBox="0 0 90 160" aria-hidden="true">
-                <rect x="14" y="40" width="62" height="80" rx="8" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <rect x="20" y="96" width="50" height="14" rx="7" fill="none" stroke="var(--accent)" stroke-width="1.6"/>
-                <path d="M26 103h22" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M52 100v6" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"><animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/></path>
-                <circle cx="45" cy="64" r="10" fill="var(--brand)"/><circle cx="45" cy="64" r="5" fill="#FFF"/><circle cx="43.5" cy="62.5" r="2" fill="#1D1D1F"/>
-              </svg>
-              <figcaption><span class="tc">3–7 sn</span>Sorunu yaz</figcaption>
-            </figure>
-            <figure class="frame" role="listitem">
-              <svg viewBox="0 0 90 160" aria-hidden="true">
-                <rect x="14" y="40" width="62" height="80" rx="8" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <rect x="20" y="96" width="36" height="14" rx="7" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="1.4"/>
-                <circle cx="66" cy="103" r="8" fill="var(--brand)"/>
-                <path d="M62 103h7M66 100l3 3-3 3" fill="none" stroke="#FFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="66" cy="103" r="12" fill="none" stroke="var(--brand)" stroke-width="1.2" stroke-opacity=".5"/>
-              </svg>
-              <figcaption><span class="tc">7–10 sn</span>Gönder</figcaption>
-            </figure>
-            <figure class="frame" role="listitem">
-              <svg viewBox="0 0 90 160" aria-hidden="true">
-                <rect x="14" y="40" width="62" height="80" rx="8" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <rect x="20" y="48" width="50" height="7" rx="3.5" fill="currentColor" fill-opacity=".8"/>
-                <rect x="20" y="60" width="44" height="5" rx="2.5" fill="currentColor" fill-opacity=".3"/>
-                <rect x="20" y="69" width="48" height="5" rx="2.5" fill="currentColor" fill-opacity=".3"/>
-                <rect x="20" y="78" width="38" height="5" rx="2.5" fill="currentColor" fill-opacity=".3"/>
-                <rect x="20" y="87" width="46" height="5" rx="2.5" fill="currentColor" fill-opacity=".3"/>
-                <rect x="20" y="96" width="30" height="5" rx="2.5" fill="currentColor" fill-opacity=".3"/>
-              </svg>
-              <figcaption><span class="tc">10–16 sn</span>Sana göre anlatsın</figcaption>
-            </figure>
-            <figure class="frame" role="listitem">
-              <svg viewBox="0 0 90 160" aria-hidden="true">
-                <circle cx="24" cy="60" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M45 53a7 7 0 1 0 0 14a4 7 0 1 1 0-14z" fill="currentColor"/>
-                <circle cx="66" cy="60" r="7" fill="currentColor" fill-opacity=".45"/>
-                <circle cx="45" cy="84" r="7" fill="currentColor"/>
-                <rect x="14" y="104" width="62" height="7" rx="3.5" fill="var(--brand)"/>
-                <rect x="22" y="116" width="46" height="5" rx="2.5" fill="currentColor" fill-opacity=".25"/>
-                <rect x="24" y="130" width="42" height="14" rx="7" fill="none" stroke="var(--brand)" stroke-width="1.4"/>
-              </svg>
-              <figcaption><span class="tc">16–20 sn</span>Özet ve çağrı</figcaption>
-            </figure>
+          <div class="board" role="list" aria-label="Storyboard: pilotun altı karesi">
+            <figure class="frame" role="listitem"><img src="img/sb-1.jpg" alt="Açılış: seri adı, göz ikonu ve soru." loading="lazy"><figcaption><span class="tc">0–2 sn</span>Soru</figcaption></figure>
+            <figure class="frame" role="listitem"><img src="img/sb-2.jpg" alt="EBA Yapay Zekâ sohbet ekranı, karşılama." loading="lazy"><figcaption><span class="tc">2–5 sn</span>1 · Sorunu yaz</figcaption></figure>
+            <figure class="frame" role="listitem"><img src="img/sb-3.jpg" alt="Soru yazılmış, gönderiliyor." loading="lazy"><figcaption><span class="tc">5–8 sn</span>2 · Gönder</figcaption></figure>
+            <figure class="frame" role="listitem"><img src="img/sb-4.jpg" alt="Cevap akıyor." loading="lazy"><figcaption><span class="tc">8–12 sn</span>3 · Sana göre anlatsın</figcaption></figure>
+            <figure class="frame" role="listitem"><img src="img/sb-5.jpg" alt="Dört evre kırmızı çerçeveyle vurgulu." loading="lazy"><figcaption><span class="tc">12–17 sn</span>4 · Kısa özetle pekiştir</figcaption></figure>
+            <figure class="frame" role="listitem"><img src="img/sb-6.jpg" alt="“Takıldığın yerde EBA Yapay Zekâ”, logo, “Bir Adım Önde”." loading="lazy"><figcaption><span class="tc">17–20 sn</span>Kapanış</figcaption></figure>
           </div>
         </div>
 
@@ -464,11 +422,11 @@ footer .wrap { padding-block: 28px 44px; font-size: 0.8rem; color: var(--muted);
           <dt>Akış</dt>
           <dd>
             <ol class="shots">
-              <li><span class="tc">0–3 sn</span><span>Koyu fonda EBA logosu, göz ikonu ve seri adı; ardından soru: "Ay neden her gece farklı görünüyor?"</span></li>
-              <li><span class="tc">3–7 sn</span><span>Telefon ekranında soru yazılıyor; mobil arayüz, tarayıcı görünmüyor.</span></li>
-              <li><span class="tc">7–10 sn</span><span>Gönder'e dokunuş, cevap gelmeye başlıyor.</span></li>
-              <li><span class="tc">10–16 sn</span><span>Cevap akıyor; Yeni ay, Hilal, İlk dördün, Dolunay vurgulanıyor.</span></li>
-              <li><span class="tc">16–20 sn</span><span>Dört evre tek karede özet; "Sen ne sorardın? Yorumlara yaz." ve "Bir Adım Önde" kapanışı.</span></li>
+              <li><span class="tc">0–2 sn</span><span>Açık fonda seri adı, göz ikonu ve soru: "Ay neden her gece farklı görünüyor?"</span></li>
+              <li><span class="tc">2–8 sn</span><span>Telefon mock-up'ında EBA Yapay Zekâ sohbeti: soru yazılıyor ve gönderiliyor. Öğrenci adı yıldızla gizli, tarayıcı görünmüyor.</span></li>
+              <li><span class="tc">8–12 sn</span><span>Cevap akıyor; telefon kameraya yaklaşıyor.</span></li>
+              <li><span class="tc">12–17 sn</span><span>"Kısa özet": Yeni ay, Hilal, İlk dördün, Dolunay sırayla kırmızı çerçeveyle vurgulanıyor.</span></li>
+              <li><span class="tc">17–20 sn</span><span>Kapanış: "Takıldığın yerde EBA Yapay Zekâ", EBA logosu, "Bir Adım Önde", eba.gov.tr. Soru çağrısı gönderi metninde.</span></li>
             </ol>
           </dd>
           <dt>Kimlik</dt>
